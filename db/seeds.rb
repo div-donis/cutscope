@@ -3,5 +3,26 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+100.times do 
+    password = Faker::Internet.password(min_length: 8, max_length: 20)
+    User.create(
+        username: Faker::Internet.unique.username(specifier: 3..20),
+        avatar: 'https://i.imgur.com/qbBOch9.png',
+        password: password,
+        password_confirmation: password
+    )
+end
+5.times do 
+    Channel.create(
+        name: Faker::Internet.unique.domain_word(specifier: 3..20),
+        subject: Faker::Movie.unique.title
+    )
+end
+800.times do 
+    Message.create(
+        content: ,
+        channel_id: Faker::Number.within(range: 1..5),
+        user_id: Faker::Number.within(range: 1..100),
+        votes: 0,
+    )
+end
