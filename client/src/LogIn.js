@@ -35,7 +35,7 @@ function LogIn({ onLogIn }) {
     <div className='login'>
       <form onSubmit={handleSubmit} autoComplete="new-password" >
         <p>
-          <label for="username">Username: {' '}</label>
+          <label htmlFor="username">Username: {' '}</label>
             <input
               autoComplete="off" 
               name='username'
@@ -45,7 +45,7 @@ function LogIn({ onLogIn }) {
             />
         </p>
         <p>
-          <label for="password">Password: {' '}</label>
+          <label htmlFor="password">Password: {' '}</label>
             <input
               autoComplete="off"
               name="password"
@@ -56,7 +56,7 @@ function LogIn({ onLogIn }) {
         </p>
         <button type="submit">Login</button>
       </form>
-      {errors.map((err) => (<div key={err.id} className="login-errors">{err}</div>))}
+      {errors?.map((err) => (<div key={err.id} className="login-errors">{err}</div>))}
     </div>
   );
 }

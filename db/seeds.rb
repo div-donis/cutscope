@@ -3,6 +3,7 @@
 #
 # Examples:
 #
+puts 'seeding...'
 100.times do 
     password = Faker::Internet.password(min_length: 8, max_length: 20)
     User.create(
@@ -12,17 +13,20 @@
         password_confirmation: password
     )
 end
+
 5.times do 
     Channel.create(
-        name: Faker::Internet.unique.domain_word(specifier: 3..20),
+        name: Faker::Internet.unique.username(specifier: 3..20),
         subject: Faker::Movie.unique.title
     )
 end
+
 800.times do 
     Message.create(
-        content: ,
+        content: Faker::TvShows::Friends.quote,
         channel_id: Faker::Number.within(range: 1..5),
         user_id: Faker::Number.within(range: 1..100),
         votes: 0,
     )
 end
+puts 'done!'

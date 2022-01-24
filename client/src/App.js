@@ -36,7 +36,7 @@ const App = () => {
       }
     })
   }
-
+  console.log(user)
   if (user) {
     return(
       <div className="App">
@@ -59,7 +59,5 @@ const App = () => {
     )
   }
 }
-
-{/*comment*/}
 
 export default App;

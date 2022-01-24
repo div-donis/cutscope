@@ -1,6 +1,6 @@
 import React from 'react'
 import User from './User'
-import Channels from './Channels'
+import Channels from './features/channels/Channels'
 import NewChannel from './NewChannel'
 import CurrentChannel from './CurrentChannel'
 import MessageBoard from './MessageBoard'

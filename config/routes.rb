@@ -7,11 +7,16 @@ Rails.application.routes.draw do
   get "/self", to: "users#show" 
 
   delete "/logout", to: "sessions#destroy" 
-  
-  resources :channels
-  resources :messages
-  resources :users
-  # Routing logic: fallback requests for React Router.
-  # Leave this here to help deploy your app later!
+
+  scope '/api' do 
+    get '/channels/:name', to: 'channels#show_by_name'
+
+    resources :channels
+    resources :messages
+    resources :users
+
+  end
+
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+
 end

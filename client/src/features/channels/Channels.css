@@ -1,0 +1,7 @@
+.channels{
+    height: 100%;
+}
+.channel-list{
+    list-style-type: none;
+    text-align: left;
+}
