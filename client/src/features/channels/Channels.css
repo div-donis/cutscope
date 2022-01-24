@@ -1,7 +1,54 @@
 .channels{
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.channel-search{
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 40px 0 40px
+}
+.channel-search input{
+    width: 100%;
+    border: var(--border);
 }
 .channel-list{
     list-style-type: none;
     text-align: left;
+    height: 100%;
+    padding: 0;
+    margin: 0 40px 0 40px
+}
+.new-channel{
+    min-height: 100px;
+    border-top: var(--border);
+    
+}
+.new-channel form{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px 0 40px
+}
+.new-channel-inputs{
+    height: 60px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.new-channel-inputs input{
+    border: var(--border);
+}
+.new-channel button{
+    border-radius: 50px;
+    height: 48px;
+    width: 48px;
+    background-color: white;
+    border: var(--border);
+    font-size: 26px;
 }

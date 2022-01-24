@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { fetchChannels, searchChannel } from "./channelsSlice";
+import { fetchChannels } from "./channelsSlice";
 import ChannelSearch from './ChannelSearch';
 import './Channels.css'
 import ChannelList from './ChannelList';
+import NewChannel from './NewChannel';
 
 const Channels = () => {
     const dispatch = useDispatch();
@@ -37,6 +38,7 @@ const Channels = () => {
            <ChannelList 
                 filteredChannels={filteredChannels}
            />
+            <NewChannel />
         </div>
     )
 }

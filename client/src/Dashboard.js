@@ -1,7 +1,7 @@
 import React from 'react'
-import User from './User'
+import User from './features/user/User'
 import Channels from './features/channels/Channels'
-import NewChannel from './NewChannel'
+
 import CurrentChannel from './CurrentChannel'
 import MessageBoard from './MessageBoard'
 import ChannelRack from './ChannelRack'
@@ -13,7 +13,6 @@ const Dashboard = () => {
             <div className='left-container'> 
                 <User />
                 <Channels />
-                <NewChannel />   
             </div>
             <div className='right-container'> 
                 <CurrentChannel /> 

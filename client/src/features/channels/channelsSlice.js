@@ -1,18 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"; 
 
-// export const searchChannel = (channel) => {
-//     return {
-//       type: "channels/search",
-//       payload: channel,
-//     };
-//   };
-
 export const fetchChannels = createAsyncThunk("channels/fetchChannels", async () => {
     return fetch(`http://localhost:3000/api/channels`)
         .then((res) => res.json())
         .then((data) => data);
 }); 
-
 
 const channelsSlice = createSlice({
     name: 'channels',
@@ -21,9 +13,9 @@ const channelsSlice = createSlice({
         status: "idle",
     },
     reducers : {
-        searchChannel(state, action) {
-            state.entities = state.entities.filter((channel) => channel.name.include(action.payload))
-        }
+        channelAdded(state, action) {
+            state.entities.push(action.payload);
+        },
     },
     extraReducers: {
         [fetchChannels.pending](state) {
@@ -36,6 +28,6 @@ const channelsSlice = createSlice({
       },
 })
 
-export const { searchChannel } = channelsSlice.actions;
+export const { channelAdded } = channelsSlice.actions;
 
 export default channelsSlice.reducer; 
