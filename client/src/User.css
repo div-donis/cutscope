@@ -1,0 +1,49 @@
+.user{
+}
+.user-details{
+    border-bottom: var(--border);
+    min-height: 100px;
+    max-height: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user-username{
+ 
+}
+.user img{
+    height: 50px;
+    width: 50px;
+    border-radius: 60px;
+}
+.user-drop{
+    position: relative;
+    top: -1px;
+    
+    overflow: hidden;
+    height: 0px;
+    transition: ease height .3s;
+    border-bottom: var(--border);
+}
+.user-drop-active{
+    position: relative;
+    top: -1px;
+    overflow: hidden;
+    height: 60px;
+    border-bottom: var(--border);
+    transition: ease height .3s;
+}
+.user-menu-arrow-down{
+    transform: rotate(180deg);
+}
+.user-menu-arrow-up{
+    transform: rotate(360deg);
+}
+.user-menu{
+    list-style-type: none;
+    text-align: left;
+    padding: 10px 0;
+    margin: 0 40px 0 40px
+}

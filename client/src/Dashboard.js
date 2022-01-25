@@ -1,17 +1,17 @@
 import React from 'react'
-import User from './features/user/User'
+import User from './User'
 import Channels from './features/channels/Channels'
-
 import CurrentChannel from './CurrentChannel'
 import MessageBoard from './MessageBoard'
 import ChannelRack from './ChannelRack'
 import './Dashboard.css'
 
-const Dashboard = () => {
+const Dashboard = ( { onLogOut, user }) => {
+
     return(
         <div className='dashboard'>
             <div className='left-container'> 
-                <User />
+                <User onLogOut={onLogOut} user={user}/>
                 <Channels />
             </div>
             <div className='right-container'> 

@@ -16,6 +16,7 @@ function SignUp({ onLogIn }) {
         },
         body: JSON.stringify({
           username: username,
+          avatar: 'https://i.imgur.com/qbBOch9.png',
           password: password,
           password_confirmation: passwordConfirmation,
         }),

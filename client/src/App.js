@@ -21,36 +21,24 @@ const App = () => {
           setUser(user)
           navigate('/')
         })
-      }else{
-        navigate('/login')
       }
     });
   }, []); 
 
-  function handleLogout() {
-    fetch("/logout", {
-      method: "DELETE",
-    }).then((r) => {
-      if (r.ok) {
-        setUser(null);
-      }
-    })
-  }
   console.log(user)
   if (user) {
     return(
       <div className="App">
           <Routes>
-            <Route path='/' element={<Dashboard />}/>
+            <Route path='/' element={<Dashboard onLogOut={setUser} user={user}/>}/>
           </Routes>
-          <p onClick={handleLogout}>logout</p>
       </div>
     )
   } else {
     return(
       <div className="App">
           <Routes>
-            <Route path="/" element={<Navigate to="/login" />}/>
+            <Route exact path="/" element={<Navigate to="/login" />}/>
             <Route path='/signup' element={<SignUp onLogIn={setUser} user={user}/>}/> 
             <Route path='/login' element={<LogIn onLogIn={setUser} user={user}/>}/> 
           </Routes>
