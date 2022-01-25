@@ -11,9 +11,15 @@ Rails.application.routes.draw do
   scope '/api' do 
     get '/channels/:name', to: 'channels#show_by_name'
 
-    resources :channels
+    concern :messagable do
+      resources :messages
+    end
+    
+    resources :users, concerns: :messagable
+    resources :channels, concerns: :messagable
+
     resources :messages
-    resources :users
+
 
   end
 
