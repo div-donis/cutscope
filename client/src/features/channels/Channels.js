@@ -35,9 +35,15 @@ const Channels = () => {
                 handleSearchChange={handleSearchChange}
                 searchChannelsBy={searchChannelsBy}
             />
-           <ChannelList 
-                filteredChannels={filteredChannels}
-           />
+            <ul className='channel-list'>
+                
+            {filteredChannels.map((channel) => (
+                <ChannelList 
+                    key={channel.name}
+                    channel={channel}  
+                />
+            ))}
+            </ul>
             <NewChannel />
         </div>
     )

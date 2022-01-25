@@ -25,12 +25,11 @@ const App = () => {
     });
   }, []); 
 
-  console.log(user)
   if (user) {
     return(
       <div className="App">
           <Routes>
-            <Route path='/' element={<Dashboard onLogOut={setUser} user={user}/>}/>
+            <Route exact path='/' element={<Dashboard onLogOut={setUser} user={user}/>}/>
           </Routes>
       </div>
     )
@@ -38,9 +37,8 @@ const App = () => {
     return(
       <div className="App">
           <Routes>
-            <Route exact path="/" element={<Navigate to="/login" />}/>
             <Route path='/signup' element={<SignUp onLogIn={setUser} user={user}/>}/> 
-            <Route path='/login' element={<LogIn onLogIn={setUser} user={user}/>}/> 
+            <Route path='/' element={<LogIn onLogIn={setUser} user={user}/>}/> 
           </Routes>
             
       </div>

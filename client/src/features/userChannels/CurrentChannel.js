@@ -1,5 +1,5 @@
 import React from 'react'
-import './CurrentChannel.css'
+import './UserChannels.css'
 
 const CurrentChannel = () => {
     return(

@@ -32,8 +32,8 @@ const User = ( { onLogOut, user } ) => {
             </div>
             <div className={ menuActive ? 'user-drop-active' : 'user-drop'}>
                 <ul className='user-menu'>
-                    <li>Account Settings</li>
-                    <li onClick={handleLogout}>Logout</li>
+                    <li key='settings'>Account Settings</li>
+                    <li key='logout' onClick={handleLogout}>Logout</li>
                 </ul>
             </div>
         </div>

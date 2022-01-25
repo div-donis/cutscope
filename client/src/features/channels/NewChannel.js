@@ -3,8 +3,9 @@ import { channelAdded } from './channelsSlice'
 import { useDispatch } from 'react-redux'
 import { v4 as uuid } from "uuid";
 
+
+
 const initialValues =  {
-    id: uuid(),
     name: '',
     subject: '',
 }
@@ -21,6 +22,7 @@ const NewChannel = () => {
         setValues({
             ...values,
             [name]: value,
+            image: 'https://i.imgur.com/tqwpka0.png'
         })
     }
 

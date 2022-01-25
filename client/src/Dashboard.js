@@ -1,9 +1,9 @@
 import React from 'react'
 import User from './User'
 import Channels from './features/channels/Channels'
-import CurrentChannel from './CurrentChannel'
+import CurrentChannel from './features/userChannels/CurrentChannel'
 import MessageBoard from './MessageBoard'
-import ChannelRack from './ChannelRack'
+import ChannelRack from './features/userChannels/ChannelRack'
 import './Dashboard.css'
 
 const Dashboard = ( { onLogOut, user }) => {

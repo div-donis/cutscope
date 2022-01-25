@@ -17,7 +17,8 @@ end
 5.times do 
     Channel.create(
         name: Faker::Internet.unique.username(specifier: 3..20),
-        subject: Faker::Movie.unique.title
+        subject: Faker::Movie.unique.title,
+        image: 'https://i.imgur.com/tqwpka0.png'
     )
 end
 
