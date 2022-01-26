@@ -1,9 +1,7 @@
 import React from 'react'
-import User from './User'
+import User from './features/user/User'
 import Channels from './features/channels/Channels'
-import CurrentChannel from './features/userChannels/CurrentChannel'
-import MessageBoard from './MessageBoard'
-import ChannelRack from './features/userChannels/ChannelRack'
+import ChannelDashboard from './features/channelDashboard/ChannelDashboard'
 import './Dashboard.css'
 
 const Dashboard = ( { onLogOut, user }) => {
@@ -15,9 +13,7 @@ const Dashboard = ( { onLogOut, user }) => {
                 <Channels />
             </div>
             <div className='right-container'> 
-                <CurrentChannel /> 
-                <MessageBoard />
-                <ChannelRack />
+                <ChannelDashboard />
             </div>
         </div>
     )

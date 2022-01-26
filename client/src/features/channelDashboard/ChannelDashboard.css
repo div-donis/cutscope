@@ -1,3 +1,8 @@
+.channel-dashboard{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .current-channel{
     min-height: 100px;
     border-bottom: var(--border);
@@ -28,4 +33,29 @@
     text-overflow: ellipsis; 
     overflow: hidden; 
     white-space: nowrap;
+}
+.current-channel{
+    min-height: 100px;
+    max-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.current-channel img{
+    height: 80px;
+    width: 80px;
+    border-radius: 60px;
+    margin: 0 10px;
+}
+.current-channel-details{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.message-board{
+    height: 100%;
 }

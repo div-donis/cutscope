@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
 import channelsReducer from "./features/channels/channelsSlice";
-import userChannelsReducer from './features/userChannels/userChannelsSlice'
+import channelDashboardReducer from './features/channelDashboard/channelDashboardSlice'
+import userReducer from './features/user/userSlice'
 
 
 const rootReducer = combineReducers({
   channels: channelsReducer,
-  userChannels: userChannelsReducer
+  channelDashboard: channelDashboardReducer,
+  user: userReducer,
 });
 
 export default rootReducer; 

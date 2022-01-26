@@ -13,6 +13,14 @@ puts 'seeding...'
         password_confirmation: password
     )
 end
+1.times do 
+    User.create(
+        username: 'testuser',
+        avatar: 'https://i.imgur.com/qbBOch9.png',
+        password: 'testuser',
+        password_confirmation: 'testuser'
+    )
+end
 
 5.times do 
     Channel.create(
@@ -26,7 +34,7 @@ end
     Message.create(
         content: Faker::TvShows::Friends.quote,
         channel_id: Faker::Number.within(range: 1..5),
-        user_id: Faker::Number.within(range: 1..100),
+        user_id: Faker::Number.within(range: 1..101),
         votes: 0,
     )
 end

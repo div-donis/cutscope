@@ -3,13 +3,15 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';  
 import Dashboard from './Dashboard';
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-import { useState, useEffect } from 'react'
-
-
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { setUser } from './features/user/userSlice'
 
 const App = () => {
 
-  const [user, setUser] = useState(null);
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user.entity);
 
   const navigate = useNavigate()
 
@@ -18,7 +20,7 @@ const App = () => {
       if (res.ok) {
         res.json()
         .then((user) => {
-          setUser(user)
+          dispatch(setUser(user))
           navigate('/')
         })
       }
@@ -38,7 +40,7 @@ const App = () => {
       <div className="App">
           <Routes>
             <Route path='/signup' element={<SignUp onLogIn={setUser} user={user}/>}/> 
-            <Route path='/' element={<LogIn onLogIn={setUser} user={user}/>}/> 
+            <Route path='/login' element={<LogIn onLogIn={setUser} user={user}/>}/> 
           </Routes>
             
       </div>

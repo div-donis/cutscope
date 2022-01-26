@@ -9,18 +9,11 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy" 
 
   scope '/api' do 
-    get '/channels/:name', to: 'channels#show_by_name'
 
-    concern :messagable do
-      resources :messages
-    end
-    
-    resources :users, concerns: :messagable
-    resources :channels, concerns: :messagable
-
+    resources :users 
+    resources :channels
     resources :messages
-
-
+  
   end
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
