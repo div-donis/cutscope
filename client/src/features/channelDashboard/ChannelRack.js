@@ -17,9 +17,9 @@ const ChannelRack = () => {
 
     const userChannels = useSelector((state) => state.channelDashboard.entities);
 
-    useEffect(() => {
-        dispatch(setCurrentChannel(userChannels[0]))
-    })
+useEffect(() => {
+    dispatch(setCurrentChannel(userChannels[0]))
+},[userChannels])
 
     return(
         <div className='channel-rack'>

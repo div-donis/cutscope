@@ -2,7 +2,7 @@ import './App.css';
 import LogIn from './LogIn';  
 import SignUp from './SignUp';  
 import Dashboard from './Dashboard';
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from './features/user/userSlice'
@@ -40,7 +40,7 @@ const App = () => {
       <div className="App">
           <Routes>
             <Route path='/signup' element={<SignUp onLogIn={setUser} user={user}/>}/> 
-            <Route path='/login' element={<LogIn onLogIn={setUser} user={user}/>}/> 
+            <Route path='/' element={<LogIn onLogIn={setUser} user={user}/>}/> 
           </Routes>
             
       </div>
