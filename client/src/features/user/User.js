@@ -1,20 +1,31 @@
 import React, {useState} from 'react'
+import { setUser, setStatus } from './userSlice'
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import './User.css'
 
-const User = ( { onLogOut, user } ) => {
+const User = () => {
+
+    const dispatch = useDispatch();
 
     const [menuActive, setMenuActive] = useState(false)
+
+    const navigate = useNavigate()
 
     const toggleMenu = () => {
         setMenuActive((menuActive) => !menuActive)
     }
+
+    const user = useSelector((state) => state.user.entity);
 
     function handleLogout() {
         fetch("/logout", {
           method: "DELETE",
         }).then((r) => {
           if (r.ok) {
-            onLogOut(null);
+            dispatch(setUser(null))
+            dispatch(setStatus('failed'))
+            navigate('/')   
           }
         })
     }

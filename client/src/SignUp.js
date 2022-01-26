@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function SignUp({ onLogIn }) {
+function SignUp({}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [errors, setErrors] = useState([])
+
+    const navigate = useNavigate()
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -27,7 +30,7 @@ function SignUp({ onLogIn }) {
                 r.json()
                 .then((user)=>{
                 console.log(user)
-                onLogIn(user)
+                navigate('/')
             })
             } else{
                 r.json().then((err)=>{
