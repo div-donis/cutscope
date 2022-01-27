@@ -23,16 +23,24 @@ const MessageBoard = () => {
         useEffect(() => elementRef.current.scrollIntoView());
         return <div ref={elementRef} />
     };
-
+console.log(messages)
     return(
         <div className='message-board'>
             <div className='message-container'>
                 {messages ? 
                     messages.map((message) => 
                     <div key={message.id} className={user.id === message.user_id ? 'message-board-message-right' : 'message-board-message-left'}>
-                        <div>
+             
+                        <div className='message-board-message'>
+                        <div className='message-user-details'>
+                            <img className='message-board-message-img' src={message.user_avatar} /> 
+                            <p className='message-board-message-user'>{message.user_username}</p>
+                        </div >
+                        <div >
+                            
                             <p className='message-board-message-content'>{message.content}</p>  
                             <p className='message-board-message-time'>{message.created_at}</p>  
+                        </div>
                         </div> 
                     </div>
                     )

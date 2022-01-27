@@ -6,7 +6,7 @@
 }
 .left-container{
     min-width: 270px;
-    border-right: var(--border);
+
     display: flex;
     flex-direction: column;
 }

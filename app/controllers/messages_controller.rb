@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
     def index
         messages = Message.all
-        render json: messages.sort_by{ |x| x }
+        render json: messages.sort_by{ |x| x } 
     end
 
     def create

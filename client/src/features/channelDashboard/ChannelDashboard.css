@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    overflow: scroll;
     
 }
 .channel-rack img{
@@ -40,7 +41,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-bottom: var(--border);
+
 }
 .current-channel img{
     height: 80px;
@@ -57,7 +58,7 @@
 }
 .message-board{
     background: var(--scheme4);
-    background: linear-gradient(0deg, var(--scheme4) 60%, var(--scheme1) 130%);
+    background: linear-gradient(0deg, var(--scheme4) 60%, var(--scheme3) 100%);
     height: 100%;
     overflow: scroll;
 }
@@ -65,31 +66,53 @@
     flex-direction: column-reverse; 
     display: flex; 
     padding: 5px 0 5px 0;
+    
 }
 .message-container p{
      margin: 0;
 }
+.message-board-message{
+ 
+}
+.message-board-message-user{
+    padding: 7px 0 7px 4px;
+}
+.message-board-message-content{
+    padding: 5px 0 5px 0px;
+}
 .message-board-message-right{
     text-align: left;    
 }
-.message-board-message-right div{
+.message-board-message-right .message-board-message{
     max-width: 70%;
     float: right;
     margin: 5px 50px 5px 70px;
-    border: var(--border);
     padding: 10px;
     border-radius: 16px;
+    background-color: var(--scheme3);
 }
 .message-board-message-left{
     text-align: left;  
+    
 }
-.message-board-message-left div{
+.message-board-message-left .message-board-message{
     max-width: 70%;
     float: left;
     margin: 5px 70px 5px 50px;
-    border: var(--border);
     padding: 10px;
     border-radius: 16px;
+    background-color: var(--scheme3);
+}
+.message-user-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+}
+.message-board-message-img{
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
 }
 .message-input{
     background-color: var(--scheme4);
