@@ -102,7 +102,7 @@
     margin: 5px 50px 5px 70px;
     padding: 10px;
     border-radius: 16px;
-    background-color: var(--scheme3);
+    background-color: var(--blue);
 }
 .message-board-message-left{
     text-align: left;  
