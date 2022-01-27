@@ -33,6 +33,9 @@ const channelDashboardSlice = createSlice({
       setCurrentChannel(state, action) {
         state.currentEntity = action.payload
       },
+      addMessage(state, action) {
+        state.currentChannelMessages.unshift(action.payload)
+      },
     },
     extraReducers: {
       [fetchCurrentChannelMessages.pending](state) {
@@ -45,6 +48,6 @@ const channelDashboardSlice = createSlice({
     },
 })
 
-export const { userChannelAdded, setCurrentChannel, setUserChannels } = channelDashboardSlice.actions;
+export const { userChannelAdded, setCurrentChannel, setUserChannels, addMessage } = channelDashboardSlice.actions;
 
 export default channelDashboardSlice.reducer; 
