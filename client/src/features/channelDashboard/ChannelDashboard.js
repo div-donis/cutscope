@@ -3,6 +3,7 @@ import CurrentChannel from './CurrentChannel'
 import MessageBoard from './MessageBoard'
 import ChannelRack from './ChannelRack'
 import './ChannelDashboard.css'
+import MessageInput from './MessageInput'
 
 const ChannelDashboard = () => {
 
@@ -10,6 +11,7 @@ const ChannelDashboard = () => {
         <div className='channel-dashboard'>
             <CurrentChannel /> 
             <MessageBoard />
+            <MessageInput />
             <ChannelRack />
         </div>
     )

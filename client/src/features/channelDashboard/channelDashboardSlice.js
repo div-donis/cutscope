@@ -1,10 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit"; 
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"; 
+
+export const fetchCurrentChannelMessages = createAsyncThunk("/channels/fetchCurrentChannelMessages", async (id) => {
+  return fetch(`/api/channels/${id}`)
+      .then((res) => res.json())
+      .then((data) => data);
+}); 
 
 const channelDashboardSlice = createSlice({
     name: 'channelDashboard',
     initialState: {
         entities: [], 
         currentEntity: '',
+        currentChannelMessages: [],
+        status: 'idle',
     },
     reducers : {
       setUserChannels(state, action) {
@@ -24,7 +32,16 @@ const channelDashboardSlice = createSlice({
       },
       setCurrentChannel(state, action) {
         state.currentEntity = action.payload
-      }
+      },
+    },
+    extraReducers: {
+      [fetchCurrentChannelMessages.pending](state) {
+        state.status = "loading";
+      },
+      [fetchCurrentChannelMessages.fulfilled](state, action) {
+        state.currentChannelMessages = action.payload.messages;
+        state.status = "idle";
+      },
     },
 })
 

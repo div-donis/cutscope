@@ -1,5 +1,6 @@
 import React from 'react'
 import { userChannelAdded } from '../channelDashboard/channelDashboardSlice'
+import { setCurrentChannel } from '../channelDashboard/channelDashboardSlice'
 import { useDispatch } from "react-redux";
 
 const ChannelList= ( { channel } ) => {
@@ -8,6 +9,7 @@ const ChannelList= ( { channel } ) => {
 
     const handleAddChannel = (channel) => {
         dispatch(userChannelAdded(channel))
+        dispatch(setCurrentChannel(channel))
     }
 
     return( 

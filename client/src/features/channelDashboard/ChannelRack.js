@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentChannel, setUserChannels } from './channelDashboardSlice'
 
@@ -17,8 +17,12 @@ const ChannelRack = () => {
 
     const userChannels = useSelector((state) => state.channelDashboard.entities);
 
+    const currentChannel = useSelector((state) => state.channelDashboard.currentEntity);
+
 useEffect(() => {
-    dispatch(setCurrentChannel(userChannels[0]))
+    if(!currentChannel){
+        dispatch(setCurrentChannel(userChannels[0]))
+    }
 },[userChannels])
 
     return(
