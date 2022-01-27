@@ -1,4 +1,5 @@
 .user{
+    background-color: var(--scheme3);
 }
 .user-details{
     border-bottom: var(--border);
