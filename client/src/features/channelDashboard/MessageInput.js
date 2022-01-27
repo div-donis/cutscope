@@ -30,9 +30,21 @@ const MessageInput = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(addMessage(values))
-        setValues(initialValues)
+        fetch('/api/messages', {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(values)
+        }).then((res) => {
+            if (res.ok) { 
+                dispatch(addMessage(values))
+                setValues(initialValues)
+                }
+            })
+            .catch(console.error);    
     }
+    
 
     return(
         <div className='message-input'>
