@@ -28,9 +28,21 @@ const NewChannel = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(channelAdded(values))
-        setValues(initialValues)
-    }
+        fetch('/api/channels', {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(values)
+        }).then((res) => {
+            if (res.ok) { 
+                dispatch(channelAdded(values))
+                setValues(initialValues)
+                }
+            })
+            .catch(console.error);    
+    }     
+
 
     return(
         <div className='new-channel'>

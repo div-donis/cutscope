@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { addMessage } from '../channelDashboard/channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
+import { v4 as uuidv4 } from 'uuid';
 
 const MessageInput = () => {
 
@@ -19,12 +20,16 @@ const MessageInput = () => {
     const handleInputChange = (e) => {
         const { name, value } = e.target
 
+        const timestamp = new Date()
+
         setValues({
             ...values,
             [name]: value,
+            id: uuidv4(),
             channel_id: currentChannel.id,
             user_id: user.id,
             votes: 0,
+            created_at: timestamp.toISOString()
         })
     }
 
