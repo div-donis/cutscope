@@ -3,6 +3,7 @@ import { setUser, setStatus } from './userSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineMinus } from 'react-icons/ai'
+import { FiSettings, FiLogOut } from 'react-icons/fi'
 import './User.css'
 
 const User = () => {
@@ -44,8 +45,8 @@ const User = () => {
             </div>
             <div className={ menuActive ? 'user-drop-active' : 'user-drop'}>
                 <ul className='user-menu'>
-                    <li key='settings'>Account Settings</li>
-                    <li key='logout' onClick={handleLogout}>Logout</li>
+                    <li key='settings'><FiSettings id='account-settings'/> Settings</li>
+                    <li key='logout' onClick={handleLogout}><FiLogOut id='logout' />Logout</li>
                 </ul>
             </div>
         </div>

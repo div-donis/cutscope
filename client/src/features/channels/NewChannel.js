@@ -53,7 +53,7 @@ const NewChannel = () => {
                         type='text'
                         onChange={handleInputChange}
                         name='name'
-                        value={values.name}
+                        value={values.name.toLowerCase()}
                         placeholder='channel name'
                     />
                     <input 

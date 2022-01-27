@@ -63,6 +63,7 @@ const MessageInput = () => {
                     onChange={handleInputChange}
                     name='content'
                     value={values.content}
+                    placeholder='say something...'
                 />
                 </div>
                 <button type='submit'><AiOutlineSend id='send'/></button>

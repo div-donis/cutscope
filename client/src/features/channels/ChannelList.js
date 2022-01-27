@@ -2,6 +2,7 @@ import React from 'react'
 import { userChannelAdded } from '../channelDashboard/channelDashboardSlice'
 import { setCurrentChannel } from '../channelDashboard/channelDashboardSlice'
 import { useDispatch } from "react-redux";
+import { GoPrimitiveDot } from 'react-icons/go'
 
 const ChannelList= ( { channel } ) => {
 
@@ -14,6 +15,7 @@ const ChannelList= ( { channel } ) => {
 
     return( 
             <>
+                <GoPrimitiveDot id='channel-dot'/>
                 <li key={channel.id} onClick={() => handleAddChannel(channel)}>{channel.name}</li>
                 <li key={`${channel.id}b`} className='channel-subject'>{channel.subject}</li>
             </>   
