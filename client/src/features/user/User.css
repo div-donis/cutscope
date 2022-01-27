@@ -1,5 +1,6 @@
 .user{
     background-color: var(--scheme3);
+    color: var(--font5);
 }
 .user-details{
     border-bottom: var(--border);
@@ -12,12 +13,14 @@
     align-items: center;
 }
 .user-username{
- 
+    margin-top: 5px;
+    font-family: var(--mono);
+    font-size: 13px;
 }
 .user img{
-    height: 50px;
-    width: 50px;
-    border-radius: 60px;
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
 }
 .user-drop{
     position: relative;
@@ -27,6 +30,8 @@
     height: 0px;
     transition: ease height .3s;
     border-bottom: var(--border);
+    color: var(--font5);
+ 
 }
 .user-drop-active{
     position: relative;
@@ -35,16 +40,41 @@
     height: 60px;
     border-bottom: var(--border);
     transition: ease height .3s;
+    color: var(--font5);
+    
 }
 .user-menu-arrow-down{
-    transform: rotate(180deg);
+    user-select: none;
 }
 .user-menu-arrow-up{
-    transform: rotate(360deg);
+    user-select: none;
 }
 .user-menu{
     list-style-type: none;
     text-align: left;
     padding: 10px 0;
-    margin: 0 40px 0 40px
+    margin: 0 40px 0 40px;
+    font-family: var(--sans-serif);
+    font-weight: 400;
+    font-size: 16px;
+    user-select: none;
+    color: var(--font3);
+}
+#minus-1{
+    position: relative;
+    left: 8px;
+    right: 0;
+}
+#minus-2{
+    transition: transform ease .3s;
+    position: relative;
+    left: -8px;
+    right: 0;
+}
+#minus-2-open{
+    transition: transform ease .3s;
+    position: relative;
+    left: -8px;
+    right: 0;
+    transform: rotate(-90deg);
 }

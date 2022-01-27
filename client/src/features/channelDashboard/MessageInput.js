@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { addMessage } from '../channelDashboard/channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
+import { AiOutlineSend } from 'react-icons/ai'
 
 const MessageInput = () => {
 
@@ -29,7 +30,9 @@ const MessageInput = () => {
             channel_id: currentChannel.id,
             user_id: user.id,
             votes: 0,
-            created_at: timestamp.toISOString()
+            created_at: timestamp.toISOString(),
+            user_username: user.username,
+            user_avatar: user.  avatar
         })
     }
 
@@ -62,7 +65,7 @@ const MessageInput = () => {
                     value={values.content}
                 />
                 </div>
-                <button type='submit'>Send</button>
+                <button type='submit'><AiOutlineSend id='send'/></button>
             </form>
         </div>
     )

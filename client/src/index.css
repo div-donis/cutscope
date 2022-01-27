@@ -1,13 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 :root{
-  --border: black solid 1px;
+  --border: rgba(0, 0, 0, 0.466) solid 1px;
   --scheme1: #414a4c;
   --scheme2: #3b444b;
   --scheme3: #1f1f22;
   --scheme4: #141414;
   --scheme5: #0e1111;
+  --font1: #bbbbbb;
+  --font2: #cccccc;
+  --font3: #dddddd;
+  --font4: #eeeeee;
+  --font5: #ffffff;
+  --blue: #665cee;
+  --sans-serif: 'Montserrat', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
 }
 body {
-  color: white;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

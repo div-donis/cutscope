@@ -13,7 +13,8 @@
 }
 .channel-search input{
     width: 100%;
-    border: var(--border);
+    border: none;
+    background-color: var(--scheme2);
 }
 .channel-list{
     list-style-type: none;
@@ -22,6 +23,10 @@
     padding: 0;
     margin: 0 40px 0 40px;
     overflow-y: scroll;
+    color: var(--font5);
+    font-family: var(--sans-serif);
+    font-weight: 500;
+    font-size: 16.8px;
 }
 .channel-subject{
     padding-left: 20px;
@@ -29,6 +34,9 @@
     overflow-x: hidden; 
     white-space: nowrap;
     font-size: 13px;
+    color: var(--font1);
+    font-weight: 300;
+    font-style: italic;
 }
 .new-channel{
     min-height: 100px;
@@ -51,13 +59,16 @@
     justify-content: space-evenly;
 }
 .new-channel-inputs input{
-    border: var(--border);
+    border: none;
+    background-color: var(--scheme2);
+    font-family: var(--sans-serif);
 }
 .new-channel button{
     border-radius: 50px;
     height: 48px;
     width: 48px;
-    background-color: white;
-    border: var(--border);
+    background-color: var(--scheme3);
+    border: 1px solid var(--font2);
     font-size: 26px;
+    color: var(--font5);
 }
