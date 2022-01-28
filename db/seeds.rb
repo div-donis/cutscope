@@ -3,12 +3,15 @@
 #
 # Examples:
 #
+
+avis = ['https://i.imgur.com/hORmgOsb.jpg','https://i.imgur.com/TYxKjukb.jpg', 'https://i.imgur.com/nyTHuLVb.jpg' ,'https://i.imgur.com/HrUQ8Cib.jpg', 'https://i.imgur.com/Qc24rcNb.jpg', 'https://i.imgur.com/z4FM34eb.jpg', 'https://i.imgur.com/dCMd9uWb.jpg', 'https://i.imgur.com/07FBkCsb.jpg', 'https://i.imgur.com/eYGS5Psb.jpg', 'https://i.imgur.com/pjBFyZ7b.jpg']
+channels = ['https://i.imgur.com/fyToB3Bb.jpg', 'https://i.imgur.com/QiVyIU8b.jpg', 'https://i.imgur.com/kuuOaA8b.jpg', 'https://i.imgur.com/7lcNooHb.jpg', 'https://i.imgur.com/eGMM8zGb.jpg', 'https://i.imgur.com/lOaw1qvb.jpg']
 puts 'seeding...'
 100.times do 
     password = Faker::Internet.password(min_length: 8, max_length: 20)
     User.create(
         username: Faker::Internet.unique.username(specifier: 3..20),
-        avatar: 'https://i.imgur.com/qbBOch9.png',
+        avatar: avis.sample,
         password: password,
         password_confirmation: password
     )
@@ -16,17 +19,17 @@ end
 1.times do 
     User.create(
         username: 'testuser',
-        avatar: 'https://i.imgur.com/qbBOch9.png',
+        avatar: avis.sample,
         password: 'testuser',
         password_confirmation: 'testuser'
     )
 end
 
-5.times do 
+20.times do 
     Channel.create(
         name: Faker::Internet.unique.username(specifier: 3..20),
         subject: Faker::Movie.unique.title,
-        image: 'https://i.imgur.com/tqwpka0.png'
+        image: channels.sample
     )
 end
 

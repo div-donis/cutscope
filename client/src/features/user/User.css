@@ -1,11 +1,10 @@
 .user{
     background-color: var(--scheme3);
     color: var(--font5);
+    min-height: 100px;
+    border-bottom: var(--border);
 }
 .user-details{
-    border-bottom: var(--border);
-    min-height: 100px;
-    max-height: 100px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -23,25 +22,22 @@
     border-radius: 40px;
 }
 .user-drop{
-    position: relative;
-    top: -1px;
-    
+
+    background-color: var(--scheme3);
     overflow: hidden;
     height: 0px;
     transition: ease height .3s;
-    border-bottom: var(--border);
+  
     color: var(--font5);
  
 }
 .user-drop-active{
-    position: relative;
-    top: -1px;
+    background-color: var(--scheme3);
     overflow: hidden;
-    height: 60px;
+    height: 80px;
     border-bottom: var(--border);
     transition: ease height .3s;
-    color: var(--font5);
-    
+    color: var(--font5);  
 }
 .user-menu-arrow-down{
     user-select: none;
@@ -62,7 +58,7 @@
     font-weight: 400;
     font-size: 16px;
     user-select: none;
-    color: var(--font3);
+    color: var(--font5);
 }
 #minus-1{
     position: relative;
