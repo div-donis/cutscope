@@ -1,10 +1,12 @@
 import React from 'react'
-import { useDispatch } from "react-redux";
 import { setUser, setStatus } from './userSlice'
 import { useNavigate } from "react-router-dom";
 import { FiSettings, FiLogOut } from 'react-icons/fi'
+import { useSelector, useDispatch } from 'react-redux';
 
-const UserMenu = ( {menuActive} ) => {
+const UserMenu = () => {
+
+    const menuActive = useSelector((state) => state.user.menuActive)
 
     const dispatch = useDispatch();
 

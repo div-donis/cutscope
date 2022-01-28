@@ -46,7 +46,7 @@ const NewChannel = () => {
 
     return(
         <div className='new-channel'>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}  autoComplete="off">
                 <button type='submit'> + </button>
                 <div className='new-channel-inputs'>
                     <input 

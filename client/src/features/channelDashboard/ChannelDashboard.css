@@ -130,6 +130,13 @@
     width: 30px;
     border-radius: 30px;
 }
+.message-board-message-time{
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--font1);
+    font-style: italic;
+    float: right;
+}
 .message-input{
     background-color: var(--scheme4);
     max-height: 100px;

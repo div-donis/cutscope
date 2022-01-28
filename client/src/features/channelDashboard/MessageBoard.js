@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 const MessageBoard = () => {
 
+    const moment = require("moment");
+
     const dispatch = useDispatch();
 
     const currentChannel = useSelector((state) => state.channelDashboard.currentEntity);
@@ -23,11 +25,11 @@ const MessageBoard = () => {
         useEffect(() => elementRef.current.scrollIntoView());
         return <div ref={elementRef} />
     };
-console.log(messages)
+
     return(
         <div className='message-board'>
             <div className='message-container'>
-                {messages ? 
+                {messages && currentChannel?.id === messages[0]?.channel_id? 
                     messages.map((message) => 
                     <div key={message.id} className={user.id === message.user_id ? 'message-board-message-right' : 'message-board-message-left'}>
              
@@ -39,12 +41,12 @@ console.log(messages)
                         <div >
                             
                             <p className='message-board-message-content'>{message.content}</p>  
-                            <p className='message-board-message-time'>{message.created_at}</p>  
+                            <p className='message-board-message-time'>{moment(message.created_at).format('MMM DD YYYY h:mma')}</p>  
                         </div>
                         </div> 
                     </div>
                     )
-                : null}
+                : 'loading...'}
             </div> 
             <AlwaysScrollToBottom />
         </div>

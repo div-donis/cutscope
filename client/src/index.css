@@ -5,15 +5,15 @@
   --border: rgba(66, 66, 66, 0.568) solid 1px;
   --scheme1: #222222;
   --scheme2: #3b444b;
-  --scheme3: #1f1f22;
-  --scheme4: #141414;
-  --scheme5: #0e1111;
+  --scheme3: #1a1a1d;
+  --scheme4: #0f0f0f;
+  --scheme5: #070707;
   --font1: #bbbbbb;
   --font2: #cccccc;
   --font3: #dddddd;
   --font4: #eeeeee;
   --font5: #ffffff;
-  --blue: #665cee;
+  --blue: #6358f8;
   --sans-serif: 'Montserrat', sans-serif;
   --mono: 'JetBrains Mono', monospace;
 }
@@ -29,4 +29,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 30px var(--scheme2) inset !important;
+    -webkit-text-fill-color: var(--font4) !important;
 }

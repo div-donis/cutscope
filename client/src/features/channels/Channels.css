@@ -23,10 +23,12 @@
 }
 .channel-search input:focus, input:focus{
     outline: none;
+    background-color: var(--scheme2);
 }
 .channel-search input::-webkit-search-cancel-button{
     display: none;
 }
+
 .channel-search input::-ms-clear{
     display: none;
 }
@@ -83,6 +85,7 @@
     font-family: var(--sans-serif);
     color: var(--font4);
     font-size: 14px;
+    border: 1px solid var(--scheme4);
 }
 .new-channel-inputs input:focus, input:focus{
     outline: none;

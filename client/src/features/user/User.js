@@ -1,13 +1,20 @@
 import React from 'react'
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineMinus } from 'react-icons/ai'
+import { toggleMenu } from './userSlice'
 import './User.css'
 
-const User = ( {menuActive, toggleMenu} ) => {
+const User = () => {
 
     const user = useSelector((state) => state.user.entity);
 
+    const menuActive = useSelector((state) => state.user.menuActive)
 
+    const dispatch = useDispatch();
+
+    const handleToggle = () => {
+        dispatch(toggleMenu(!menuActive))
+    }
 
     return(
         <div className='user'>
@@ -16,7 +23,7 @@ const User = ( {menuActive, toggleMenu} ) => {
                 <div className='user-username'>
                     {user.username}
                 </div>
-                <div className={ menuActive ? 'user-menu-arrow-up' : 'user-menu-arrow-down'} onClick={toggleMenu}>
+                <div className={ menuActive ? 'user-menu-arrow-up' : 'user-menu-arrow-down'} onClick={handleToggle}>
                     <AiOutlineMinus id='minus-1' /><AiOutlineMinus id={menuActive ? 'minus-2' : 'minus-2-open'} />
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { addMessage } from '../channelDashboard/channelDashboardSlice'
+import { addMessage } from './channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 import { AiOutlineSend } from 'react-icons/ai'
@@ -32,7 +32,7 @@ const MessageInput = () => {
             votes: 0,
             created_at: timestamp.toISOString(),
             user_username: user.username,
-            user_avatar: user.  avatar
+            user_avatar: user.avatar
         })
     }
 

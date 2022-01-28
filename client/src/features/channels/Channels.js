@@ -6,6 +6,7 @@ import './Channels.css'
 import ChannelList from './ChannelList';
 import NewChannel from './NewChannel';
 
+
 const Channels = () => {
     const dispatch = useDispatch();
 
@@ -37,12 +38,12 @@ const Channels = () => {
             />
             <ul className='channel-list'>
                 
-            {filteredChannels.map((channel) => (
+            {filteredChannels && channels ? filteredChannels.map((channel) => (
                 <ChannelList 
                     key={channel.name}
                     channel={channel}  
                 />
-            ))}
+            )) : <li>loading...</li>}
             </ul>
             <NewChannel />
         </div>
