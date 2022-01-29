@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentChannel, setUserChannels } from './channelDashboardSlice'
 
@@ -29,7 +29,7 @@ useEffect(() => {
         <div className='channel-rack'>
             {userChannels.map((userChannel) => 
                 <div key={userChannel.id} className='channel-rack-channel-details'>
-                    <img src={userChannel.image} onClick={() => handleSetChannel(userChannel)}></img>
+                    <img alt='user channel' src={userChannel.image} onClick={() => handleSetChannel(userChannel)}></img>
                     <div>{userChannel.name}</div>
                 </div>
             )}

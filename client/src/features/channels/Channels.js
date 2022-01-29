@@ -38,7 +38,7 @@ const Channels = () => {
             />
             <ul className='channel-list'>
                 
-            {filteredChannels && channels ? filteredChannels.map((channel) => (
+            {filteredChannels ? filteredChannels.map((channel) => (
                 <ChannelList 
                     key={channel.name}
                     channel={channel}  

@@ -19,7 +19,7 @@ const User = () => {
     return(
         <div className='user'>
             <div className='user-details'>
-                <img src={`${user.avatar}`}></img>
+                <img alt='user avi' src={`${user.avatar}`}></img>
                 <div className='user-username'>
                     {user.username}
                 </div>

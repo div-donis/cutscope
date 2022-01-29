@@ -18,7 +18,7 @@ const MessageBoard = () => {
         if(currentChannel){
             dispatch(fetchCurrentChannelMessages(currentChannel.id))
         }
-    }, [currentChannel])
+    }, [currentChannel, dispatch])
 
     const AlwaysScrollToBottom = () => {
         const elementRef = useRef();
@@ -35,7 +35,7 @@ const MessageBoard = () => {
              
                         <div className='message-board-message'>
                         <div className='message-user-details'>
-                            <img className='message-board-message-img' src={message.user_avatar} /> 
+                            <img alt='user iamge' className='message-board-message-img' src={message.user_avatar} /> 
                             <p className='message-board-message-user'>{message.user_username}</p>
                         </div >
                         <div >

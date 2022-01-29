@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { channelAdded } from './channelsSlice'
 import { useDispatch } from 'react-redux'
-import { v4 as uuid } from "uuid";
-
-
 
 const initialValues =  {
     name: '',

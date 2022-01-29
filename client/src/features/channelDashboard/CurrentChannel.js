@@ -9,7 +9,7 @@ const CurrentChannel = () => {
         <div className='current-channel'>
             {currentChannel ? 
             <div className='current-channel-details'>
-                <img src={currentChannel?.image}></img>
+                <img alt='current channel' src={currentChannel?.image}></img>
                 <div>{currentChannel?.name}</div>
             </div>
             : null}

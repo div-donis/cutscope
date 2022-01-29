@@ -12,8 +12,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    overflow: scroll;
     padding: 0 10px;
+    overflow: auto;
+    scrollbar-width: 3px;
+}
+.channel-rack::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.channel-rack::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+.channel-rack::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid var(--scheme4)l; /* should match background, can't be transparent */
+    background-color: var(--blue);
 }
 .channel-rack img{
     height: 60px;
