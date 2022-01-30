@@ -56,14 +56,14 @@ const MessageInput = () => {
 
     return(
         <div className='message-input'>
-            <form className='message-form' onSubmit={handleSubmit}>
+            <form className='message-form' autoFocus onSubmit={handleSubmit}>
                 <div>
                     <textarea 
                     className='message-input-text'
                     onChange={handleInputChange}
                     name='content'
                     value={values.content}
-                    placeholder='say something...'
+                    placeholder='Say Something...'
                 />
                 </div>
                 <button type='submit'><AiOutlineSend id='send'/></button>

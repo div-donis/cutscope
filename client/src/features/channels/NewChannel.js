@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { channelAdded } from './channelsSlice'
 import { useDispatch } from 'react-redux'
+import { VscAdd } from 'react-icons/vsc'
 
 const initialValues =  {
     name: '',
@@ -35,6 +36,7 @@ const NewChannel = () => {
             if (res.ok) { 
                 dispatch(channelAdded(values))
                 setValues(initialValues)
+                
                 }
             })
             .catch(console.error);    
@@ -44,21 +46,21 @@ const NewChannel = () => {
     return(
         <div className='new-channel'>
             <form onSubmit={handleSubmit}  autoComplete="off">
-                <button type='submit'> + </button>
+                <button type='submit'><VscAdd id='add-channel'/></button>
                 <div className='new-channel-inputs'>
                     <input 
                         type='text'
                         onChange={handleInputChange}
                         name='name'
                         value={values.name.toLowerCase()}
-                        placeholder='channel name'
+                        placeholder='Channel Name'
                     />
                     <input 
                         type='text'
                         onChange={handleInputChange}
                         name='subject'
                         value={values.subject}
-                        placeholder='channel subject'
+                        placeholder='Channel Subject'
                     />
                 </div>  
             </form>

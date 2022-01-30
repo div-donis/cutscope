@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { fetchCurrentChannelMessages } from "./channelDashboardSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { AiTwotoneStar } from 'react-icons/ai'
 
 const MessageBoard = () => {
 
@@ -41,7 +42,8 @@ const MessageBoard = () => {
                         <div >
                             
                             <p className='message-board-message-content'>{message.content}</p>  
-                            <p className='message-board-message-time'>{moment(message.created_at).format('MMM DD YYYY h:mma')}</p>  
+                            <p className='message-board-message-votes'><AiTwotoneStar id='star'/>{message.votes}</p>
+                            <p className='message-board-message-time'><hr />{moment(message.created_at).format('MMM DD YYYY h:mma')}<hr /></p>  
                         </div>
                         </div> 
                     </div>

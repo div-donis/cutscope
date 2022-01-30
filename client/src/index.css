@@ -1,20 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 :root{
-  --border: rgba(66, 66, 66, 0.568) solid 1px;
+  --border: rgba(17, 17, 17, 0.719) solid 1px;
   --scheme1: #222222;
-  --scheme2: #3b444b;
-  --scheme3: #1a1a1d;
-  --scheme4: #0f0f0f;
-  --scheme5: #070707;
+  --scheme2: #171718;
+  --scheme3: #202124;
+  --scheme4: #2f2f33;
+  --scheme5: #636363;
+  --scheme6: #3d3e41;
   --font1: #bbbbbb;
-  --font2: #cccccc;
+  --font2: #acacac;
   --font3: #dddddd;
-  --font4: #eeeeee;
-  --font5: #ffffff;
-  --blue: #6358f8;
-  --sans-serif: 'Montserrat', sans-serif;
+  --font4: #f1f3fd;
+  --font5: #dadada;
+  --font6: #aaaaaab2;
+  --blue: #4e42f0;
+  --green: #4e4e4e5b;
+  --sans-serif: 'Source Sans Pro', sans-serif;
   --mono: 'JetBrains Mono', monospace;
 }
 body {
