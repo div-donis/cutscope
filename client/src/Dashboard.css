@@ -10,6 +10,7 @@
     max-width: 270px;
     display: flex;
     flex-direction: column;
+    border-right: var(--border)
 }
 .right-container{
     width: 100%;

@@ -25,8 +25,12 @@ class ChannelsController < ApplicationController
     end
 
     def show_by_name
-        channel = Channel.find_by(name: params[:name])
-        render json: channel
+        channel = Channel.where("name like ?", "#{params[:name]}%")
+        if channel
+            render json: channel
+        else
+            render json: { error: "channel not found" }, status: :not_found
+        end
     end
 
     private

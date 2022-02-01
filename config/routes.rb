@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :users 
     resources :channels
     resources :messages
+
+    get '/channels/by_name/:name', to: 'channels#show_by_name'
   
   end
 

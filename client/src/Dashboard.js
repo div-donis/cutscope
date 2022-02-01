@@ -1,5 +1,5 @@
 import User from './features/user/User'
-import Channels from './features/channels/Channels'
+import Channels from './features/channelDashboard/Channels'
 import ChannelDashboard from './features/channelDashboard/ChannelDashboard'
 import './Dashboard.css'
 import UserMenu from './features/user/UserMenu'

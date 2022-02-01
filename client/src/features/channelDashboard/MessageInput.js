@@ -14,7 +14,7 @@ const MessageInput = () => {
 
     const dispatch = useDispatch();
 
-    const currentChannel = useSelector((state) => state.channelDashboard.currentEntity);
+    const currentChannel = useSelector((state) => state.channelDashboard.currentChannel);
 
     const user = useSelector((state) => state.user.entity);
 

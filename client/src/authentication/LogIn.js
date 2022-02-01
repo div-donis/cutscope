@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser } from './features/user/userSlice'
+import { setUser } from '../features/user/userSlice'
+import './Authentication.css'
 
 function LogIn() {
   const [username, setUsername] = useState("");
@@ -40,37 +41,40 @@ function LogIn() {
             }
         })
     }
-    if (!status) {
+    if (status === 'loading') {
         return(
             <>loading</>
         )
     } else {
         return (
             <div className='login'>
-            <form onSubmit={handleSubmit} autoComplete="new-password" >
+            <form onSubmit={handleSubmit} className='auth-form' autoComplete="new-password" >
+                <div className="logo"><img src='https://i.imgur.com/oWqc2lw.png'></img></div>
                 <p>
-                <label htmlFor="username">Username: {' '}</label>
+                    <label htmlFor="username"></label>
                     <input
                     autoComplete="off" 
                     name='username'
                     type="text"
                     value={username}
+                    placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)}
                     />
                 </p>
                 <p>
-                <label htmlFor="password">Password: {' '}</label>
+                    <label htmlFor="password"></label>
                     <input
                     autoComplete="off"
                     name="password"
                     type="password"
                     value={password}
+                    placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     />
                 </p>
                 <button type="submit">Login</button>
             </form>
-            {errors?.map((err) => (<div key={err.id} className="login-errors">{err}</div>))}
+            <div className="login-errors">{errors?.map((err) => (<div key={err.id} className="login-errors">{err}</div>))}</div>
             </div>
         );
     }

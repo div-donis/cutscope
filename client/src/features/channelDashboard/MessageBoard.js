@@ -9,7 +9,7 @@ const MessageBoard = () => {
 
     const dispatch = useDispatch();
 
-    const currentChannel = useSelector((state) => state.channelDashboard.currentEntity);
+    const currentChannel = useSelector((state) => state.channelDashboard.currentChannel);
 
     const messages = useSelector((state) => state.channelDashboard.currentChannelMessages);
 

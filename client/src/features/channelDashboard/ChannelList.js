@@ -23,31 +23,25 @@ const ChannelList= ( { channel } ) => {
 
     const dispatch = useDispatch()
 
-    const checkUser = channel.messages?.some((m) => {
-        if(m.user_id === user.id){
-            return true
-        }
-    })
+   
 
     const handleAddChannel = () => {
-        if(!checkUser){
-            fetch('/api/messages', {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify(values)
-            }).then((res) => {
-                if (res.ok) { 
-                    dispatch(userChannelAdded(channel))
-                    dispatch(setCurrentChannel(channel))
-                    dispatch(addMessage(values))
-                }
-            })
-            .catch(console.error); 
-        }else{
-            dispatch(setCurrentChannel(channel))
-        }
+        fetch('/api/messages', {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(values)
+        }).then((res) => {
+            if (res.ok) { 
+                dispatch(userChannelAdded(channel))
+                dispatch(setCurrentChannel(channel))
+                dispatch(addMessage(values))
+            }else{
+                dispatch(setCurrentChannel(channel))
+            }
+        })
+        .catch(console.error); 
     }
 
     return( 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { channelAdded } from './channelsSlice'
+import { channelAdded } from './channelDashboardSlice'
 import { useDispatch } from 'react-redux'
 import { VscAdd } from 'react-icons/vsc'
 

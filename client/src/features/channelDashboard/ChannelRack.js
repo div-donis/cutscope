@@ -15,9 +15,9 @@ const ChannelRack = () => {
         dispatch(setCurrentChannel(userChannel))
     }
 
-    const userChannels = useSelector((state) => state.channelDashboard.entities);
+    const userChannels = useSelector((state) => state.channelDashboard.userChannels);
 
-    const currentChannel = useSelector((state) => state.channelDashboard.currentEntity);
+    const currentChannel = useSelector((state) => state.channelDashboard.currentChannel);
 
 useEffect(() => {
     if(!currentChannel){

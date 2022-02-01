@@ -1,0 +1,58 @@
+body{
+    background-color: var(--scheme2);
+}
+.auth-form{
+    margin: 100px auto 0 auto;
+    height: 600px;
+    width: 500px;
+    background-color: var(--scheme3);
+    color: var(--font4);
+    font-family: var(--sans-serif);
+    font-weight: 600;
+    font-size: 16.8px;
+    border-radius: 20px;
+    border: 1px solid var(--blue);
+}
+.auth-form input{
+    border: none;
+    background-color: var(--scheme2);
+    font-family: var(--sans-serif);
+    color: var(--font4);
+    font-size: 16.7px;
+    border-radius: 5px;
+    padding: 0px 5px;
+    border: 1px solid var(--scheme2);
+}
+.auth-form input:focus, input:focus{
+    outline: none;
+    border: 1px solid var(--blue);
+}
+.logo{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--scheme3);
+    border-radius: 20px;
+}
+.logo img{
+    height: 100px
+}
+.auth-form button{
+    font-size: 16.7px;
+    background-color: var(--blue);
+    color: var(--font3);
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    height: 50px;
+    width: 100px;
+}
+.login-errors{
+    margin-top: 30px;
+    color: red;
+}
+.error-message{
+    margin: 10px 0;
+}

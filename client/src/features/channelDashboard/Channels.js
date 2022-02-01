@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { fetchChannels } from "./channelsSlice";
+import { fetchChannels } from "./channelDashboardSlice";
 import ChannelSearch from './ChannelSearch';
-import './Channels.css'
 import ChannelList from './ChannelList';
 import NewChannel from './NewChannel';
 
@@ -10,9 +9,9 @@ import NewChannel from './NewChannel';
 const Channels = () => {
     const dispatch = useDispatch();
 
-    const channels = useSelector((state) => state.channels.entities);
+    const channels = useSelector((state) => state.channelDashboard.channels);
 
-    const status = useSelector((state) => state.channels.status);
+    const status = useSelector((state) => state.channelDashboard.channelsStatus);
 
     console.log(status)
 

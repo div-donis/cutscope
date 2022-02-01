@@ -1,40 +1,46 @@
 .user{
     background-color: var(--scheme3);
     color: var(--font5);
-    min-height: 100px;
+    min-height: 50px;
     border-bottom: var(--border);
 }
 .user-details{
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 .user-username{
-    margin-top: 5px;
+    position: absolute;
+    left: 80px;
+    margin: 5px 0 0 7px;
     font-family: var(--mono);
     font-size: 13px;
+    user-select: none;
 }
 .user img{
-    height: 40px;
-    width: 40px;
+    position: absolute;
+    left: 50px;
+    height: 30px;
+    width: 30px;
     border-radius: 40px;
+    user-select: none;
 }
 .user-drop{
     background-color: var(--scheme3);
     overflow: hidden;
     height: 0px;
-    transition: ease height .3s;
+    transition: ease height .4s;
     color: var(--font5);
 }
 .user-drop-active{
     background-color: var(--scheme3);
-    overflow: show;
-    height: 50px;
+    height: 58px;
     border-bottom: var(--border);
-    transition: ease height .3s;
+    transition: ease height .4s;
     color: var(--font5);  
+    z-index: -2;
 }
 .user-menu-arrow-down{
     user-select: none;
@@ -43,7 +49,7 @@
     user-select: none;
 }
 .user-menu{
-    height: 50px;
+    height: 58px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -55,24 +61,28 @@
     font-weight: 400;
     font-size: 14.7px;
     user-select: none;
-    color: var(--font3)
+    color: var(--font3);
+    overflow: hidden;
 }
 #minus-1{
     position: relative;
-    left: 8px;
+    left: -100px;
     right: 0;
+    top: 3px
 }
 #minus-2{
     transition: transform ease .3s;
     position: relative;
-    left: -8px;
+    left: -116px;
     right: 0;
+    top: 3px
 }
 #minus-2-open{
     transition: transform ease .3s;
     position: relative;
-    left: -8px;
+    left: -116px;
     right: 0;
+    top: 3px;
     transform: rotate(-90deg);
 }
 #account-settings{

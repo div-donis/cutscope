@@ -3,13 +3,12 @@ import { useSelector } from "react-redux";
 
 const CurrentChannel = () => {
 
-    const currentChannel = useSelector((state) => state.channelDashboard.currentEntity)
+    const currentChannel = useSelector((state) => state.channelDashboard.currentChannel)
 
     return(
         <div className='current-channel'>
             {currentChannel ? 
             <div className='current-channel-details'>
-                <img alt='current channel' src={currentChannel?.image}></img>
                 <div>{currentChannel?.name}</div>
             </div>
             : null}

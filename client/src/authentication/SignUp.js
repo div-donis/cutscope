@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Authentication.css'
 
 function SignUp() {
     const [username, setUsername] = useState("");
@@ -44,37 +45,41 @@ function SignUp() {
   
     return (
     <div className='signup'>
-        <form onSubmit={handleSubmit}>
-            <p>
-                <label htmlFor="username">Username: {' '}</label>
-                <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                />
-            </p>
-            <p>
-                <label htmlFor="password">Password: {' '}</label>
-                <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                />
-            </p>
-            <p>
-                <label htmlFor="password_confirmation">Confirm Password: {' '}</label>
-                <input
-                type="password"
-                id="password_confirmation"
-                value={passwordConfirmation}
-                onChange={(e) => setPasswordConfirmation(e.target.value)}
-                />
-            </p>
-            <button type="submit">Submit</button>
+        <form className='auth-form' onSubmit={handleSubmit}>
+          <div className="logo"><img src='https://i.imgur.com/oWqc2lw.png'></img></div>
+          <p>
+              <label htmlFor="username"></label>
+              <input
+              type="text"
+              id="username"
+              value={username}
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+              />
+          </p>
+          <p>
+              <label htmlFor="password"></label>
+              <input
+              type="password"
+              id="password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              />
+          </p>
+          <p>
+              <label htmlFor="password_confirmation"></label>
+              <input
+              type="password"
+              id="password_confirmation"
+              value={passwordConfirmation}
+              placeholder="Confirm Password"
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
+              />
+          </p>
+          <button type="submit">Sign Up</button>
+          <div className="login-errors">{errors.map((err) => (<div key={err.id} className="error-message">{err}</div>))}</div>
         </form>
-        {errors.map((err) => (<div key={err.id} className="login-errors">{err}</div>))}
     </div>
     );
   } 

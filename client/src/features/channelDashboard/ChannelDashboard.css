@@ -24,7 +24,7 @@
 }
 .channel-rack::-webkit-scrollbar-thumb {
     border-radius: 8px;
-    border: 2px solid var(--scheme4)l; /* should match background, can't be transparent */
+    border: 2px solid var(--scheme4); /* should match background, can't be transparent */
     background-color: var(--scheme2);
 }
 .channel-rack img{
@@ -40,33 +40,25 @@
     user-select: none;
 }
 .channel-rack-channel-details div{
-    width: 45px;
+    width: 60px;
     text-overflow: ellipsis; 
     overflow: hidden; 
     white-space: nowrap;
+    margin: 0 2px
 }
 .current-channel{
     background: var(--scheme4);
-    min-height: 100px;
-    max-height: 100px;
+    min-height: 50px;
+    max-height: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: var(--font4);
     border-bottom: var(--border);
-    color: var(--font5);
+    color: var(--font4);
     font-family: var(--sans-serif);
     font-weight: 500;
     font-size: 20.8px;
-
-}
-.current-channel img{
-    height: 70px;
-    width: 70px;
-    border-radius: 70px;
-    margin: 0 10px;
-    border: 3px solid var(--blue)
 }
 .current-channel-details{
     width: 100%;
@@ -97,9 +89,9 @@
 .message-board-message-content{
     padding: 5px 0 5px 37px;
     font-family: var(--sans-serif);
-    font-size: 16.8px;
+    font-size: 15.6px;
     font-weight: 500;
-    color: var(--font5);
+    color: var(--font4);
 }
 .message-board-message-votes{
     width: min-content;
@@ -111,12 +103,14 @@
     font-size: 14.8px;
     border-radius: 5px;
     display: flex;
+    user-select: none;
 }
 #star{
     position: relative;
     margin-right: 6px;
     top: 2px;
     color: yellow;
+    
 }
 .message-board-message-right{
     text-align: left;   
@@ -172,6 +166,7 @@
 .message-input{
     background-color: var(--scheme4);
     min-height: 100px;
+    border: 1px solid var(--border2);
 }
 .message-form{
     margin: 0 50px;
@@ -200,7 +195,6 @@
     background-color: var(--scheme6);
     border-radius: 5px;
     padding: 0px 5px;
-    border: none;
 }
 .message-input textarea:focus, input:focus{
     outline: none;
@@ -219,3 +213,126 @@
 }
 
 
+
+.channels{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--scheme3);
+    flex-grow: 3;
+    overflow-y: hidden;
+}
+.channel-search{
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 40px 0 40px
+}
+.channel-search input{
+    width: 100%;
+    border: 1px solid var(--scheme2);
+    background-color: var(--scheme2);
+    color: var(--font4);
+    font-family: var(--sans-serif);
+    font-size: 14.8px;
+    border-radius: 5px;
+    padding: 0 22px 0 5px
+}
+.channel-search input:focus, input:focus{
+    outline: none;
+    background-color: var(--scheme2);
+    border: 1px solid var(--blue);
+}
+.channel-search input::-webkit-search-cancel-button{
+    display: none;
+}
+.channel-search input::-ms-clear{
+    display: none;
+}
+#search-glass{
+    font-size: 15px;
+    color: var(--font6);
+    position: absolute;
+    left: 210px
+}
+.channel-list{
+    list-style-type: none;
+    text-align: left;
+    height: 100%;
+    padding: 0 40px 0 40px;
+    overflow-y: scroll;
+    color: var(--font5);
+    font-family: var(--sans-serif);
+    font-weight: 600;
+    font-size: 16.8px;
+    color: var(--font4);
+    user-select: none;
+    margin: 0;
+}
+.channel-subject{
+    padding-left: 16px;
+    text-overflow: ellipsis; 
+    overflow-x: hidden; 
+    white-space: nowrap;
+    font-size: 15.3px;
+    color: var(--font6);
+    font-weight: 400;
+    font-style: italic;
+}
+#channel-dot{
+    color: var(--blue);
+    position: relative;
+    top: 3px;
+    float: left;
+}
+.new-channel{
+    min-height: 100px;
+    max-height: 100px;
+    background-color: var(--scheme3);
+}
+.new-channel form{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px 0 40px
+}
+.new-channel-inputs{
+    height: 80px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.new-channel-inputs input{
+    border: none;
+    background-color: var(--scheme2);
+    font-family: var(--sans-serif);
+    color: var(--font4);
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 0px 5px;
+    border: 1px solid var(--scheme2);
+}
+.new-channel-inputs input:focus, input:focus{
+    outline: none;
+    border: 1px solid var(--blue);
+}
+.new-channel button{
+    height: 48px;
+    width: 48px;
+    background-color: var(--scheme3);
+    font-size: 26px;
+    color: var(--font5);
+    border: none;
+    border-radius: 5px;
+}
+.new-channel button:hover{
+    background-color: var(--scheme2);
+}
+#add-channel{
+    position: relative;
+    top: 3px;
+    left: 1px
+}

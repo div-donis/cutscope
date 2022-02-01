@@ -1,6 +1,6 @@
 import './App.css';
-import LogIn from './LogIn';  
-import SignUp from './SignUp';  
+import LogIn from './authentication/LogIn';  
+import SignUp from './authentication/SignUp';  
 import Dashboard from './Dashboard';
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useEffect } from 'react'
