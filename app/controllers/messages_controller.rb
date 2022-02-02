@@ -18,6 +18,15 @@ class MessagesController < ApplicationController
         message.destroy
     end
 
+    def show_by_channel
+        message = Message.where(channel_id: params[:channel_id]).order("created_at DESC")
+        if message
+            render json: message
+        else
+            render json: { error: "messages not found" }, status: :not_found
+        end
+    end
+
     private
 
     def message_params

@@ -1,16 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"; 
 
-export const fetchChannels = createAsyncThunk("/channels/fetchChannels", async () => {
-  return fetch(`/api/channels`)
+export const fetchChannels = createAsyncThunk("/channels/fetchChannels", async (name) => {
+  return fetch(`/api/channels/by_name/${name}`)
       .then((res) => res.json())
       .then((data) => data);
 }); 
 
 export const fetchCurrentChannelMessages = createAsyncThunk("/channels/fetchCurrentChannelMessages", async (id) => {
-  return fetch(`/api/channels/${id}`)
+  return fetch(`/api/messages/by_channel/${id}`)
       .then((res) => res.json())
       .then((data) => data);
-}); 
+})
 
 const channelDashboardSlice = createSlice({
     name: 'channelDashboard',
@@ -53,7 +53,7 @@ const channelDashboardSlice = createSlice({
         state.currentChannelMessagesStatus = "loading";
       },
       [fetchCurrentChannelMessages.fulfilled](state, action) {
-        state.currentChannelMessages = action.payload.messages;
+        state.currentChannelMessages = action.payload;
         state.currentChannelMessagesStatus = "idle";
       },
       [fetchChannels.pending](state) {

@@ -17,6 +17,7 @@ const MessageBoard = () => {
 
     useEffect(() => {
         if(currentChannel){
+            console.log(currentChannel)
             dispatch(fetchCurrentChannelMessages(currentChannel.id))
         }
     }, [currentChannel, dispatch])

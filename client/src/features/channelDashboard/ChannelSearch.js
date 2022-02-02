@@ -3,7 +3,7 @@ import { AiOutlineSearch } from 'react-icons/ai'
 
 
 
-const ChannelSearch = ( {handleSearchChange, searchChannelsBy} ) => {
+const ChannelSearch = ( {handleSearchChange} ) => {
 
     return(
         <div className='channel-search'>
@@ -11,7 +11,6 @@ const ChannelSearch = ( {handleSearchChange, searchChannelsBy} ) => {
                 type="search"
                 onChange={(e) => handleSearchChange(e)}
                 name="searchChannelsBy"
-                value={searchChannelsBy}
                 placeholder="Search Channels"
             />
             < AiOutlineSearch id='search-glass' />

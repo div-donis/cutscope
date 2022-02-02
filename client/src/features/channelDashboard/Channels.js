@@ -12,37 +12,25 @@ const Channels = () => {
     const channels = useSelector((state) => state.channelDashboard.channels);
 
     const status = useSelector((state) => state.channelDashboard.channelsStatus);
-
-    console.log(status)
-
-    useEffect(() => {
-        dispatch(fetchChannels())
-    }, [dispatch])
-
-    const [searchChannelsBy, setSearchChannelsBy] = useState("");
       
     function handleSearchChange(event) {
-        setSearchChannelsBy(event.target.value);
+        dispatch(fetchChannels((event.target.value).toLowerCase()))
     }
 
-    const filteredChannels = !searchChannelsBy
-    ? channels 
-    : channels.filter((channel) => channel.name.includes(searchChannelsBy))
+    console.log(status)
 
     return(
         <div className='channels'>
            <ChannelSearch 
                 handleSearchChange={handleSearchChange}
-                searchChannelsBy={searchChannelsBy}
             />
-            <ul className='channel-list'>
-                
-            {filteredChannels ? filteredChannels.map((channel) => (
-                <ChannelList 
-                    key={channel.name}
-                    channel={channel}  
-                />
-            )) : <li>loading...</li>}
+            <ul className='channel-list'>   
+                {channels.length > 0 ? channels?.map((channel) => (
+                    <ChannelList 
+                        key={channel.name}
+                        channel={channel}  
+                    />
+                )) : null }
             </ul>
             <NewChannel />
         </div>
