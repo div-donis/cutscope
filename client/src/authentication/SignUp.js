@@ -45,8 +45,8 @@ function SignUp() {
   
     return (
     <div className='signup'>
-        <form className='auth-form' onSubmit={handleSubmit}>
-          <div className="logo"><img src='https://i.imgur.com/oWqc2lw.png'></img></div>
+        <form className='auth-form' onSubmit={handleSubmit} autoComplete="new-password">
+          <div className="logo"><img alt='logo' src='https://i.imgur.com/oWqc2lw.png'></img></div>
           <p>
               <label htmlFor="username"></label>
               <input

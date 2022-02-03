@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { fetchCurrentChannelMessages } from "./channelDashboardSlice";
+import { fetchCurrentChannelMessages, incrementMessageQuery } from "./channelDashboardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AiTwotoneStar } from 'react-icons/ai'
 
@@ -29,9 +29,9 @@ const MessageBoard = () => {
     };
 
     return(
-        <div className='message-board'>
-            <div className='message-container'>
-                {messages && currentChannel?.id === messages[0]?.channel_id? 
+        <div className='message-board' >
+            <div className='message-container' >
+                {messages ?
                     messages.map((message) => 
                     <div key={message.id} className={user.id === message.user_id ? 'message-board-message-right' : 'message-board-message-left'}>
              
@@ -44,7 +44,7 @@ const MessageBoard = () => {
                             
                             <p className='message-board-message-content'>{message.content}</p>  
                             <p className='message-board-message-votes'><AiTwotoneStar id='star'/>{message.votes}</p>
-                            <p className='message-board-message-time'><hr />{moment(message.created_at).format('MMM DD YYYY h:mma')}<hr /></p>  
+                            <div className='message-board-message-time'><hr />{moment(message.created_at).format('MMM DD YYYY h:mma')}<hr /></div>  
                         </div>
                         </div> 
                     </div>

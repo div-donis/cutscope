@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
     end
 
     def show_by_channel
-        message = Message.where(channel_id: params[:channel_id]).order("created_at DESC")
+        message = Message.where(channel_id: params[:channel_id]).order("created_at DESC").limit(50)
         if message
             render json: message
         else

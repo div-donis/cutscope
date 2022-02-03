@@ -1,5 +1,5 @@
 import React from 'react'
-import { userChannelAdded, setCurrentChannel, addMessage } from '../channelDashboard/channelDashboardSlice'
+import { userChannelAdded, setCurrentChannel, addMessage } from './channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { GoPrimitiveDot } from 'react-icons/go'
 import { v4 as uuidv4 } from 'uuid';
@@ -22,8 +22,6 @@ const ChannelList= ( { channel } ) => {
     }
 
     const dispatch = useDispatch()
-
-   
 
     const handleAddChannel = () => {
         fetch('/api/messages', {

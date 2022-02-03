@@ -49,7 +49,7 @@ function LogIn() {
         return (
             <div className='login'>
             <form onSubmit={handleSubmit} className='auth-form' autoComplete="new-password" >
-                <div className="logo"><img src='https://i.imgur.com/oWqc2lw.png'></img></div>
+                <div className="logo"><img alt='logo' src='https://i.imgur.com/oWqc2lw.png'></img></div>
                 <p>
                     <label htmlFor="username"></label>
                     <input

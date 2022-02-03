@@ -23,7 +23,7 @@ useEffect(() => {
     if(!currentChannel){
         dispatch(setCurrentChannel(userChannels[0]))
     }
-},[userChannels])
+},[currentChannel])
 
     return(
         <div className='channel-rack'>

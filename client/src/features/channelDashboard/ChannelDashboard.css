@@ -154,7 +154,6 @@
     text-align: center;
     padding: 5px 0 0 0;
     display: flex;
-
 }
 .message-board-message-time hr{
     display: inline-flex;
@@ -330,6 +329,32 @@
 }
 .new-channel button:hover{
     background-color: var(--scheme2);
+}
+.new-channel-errors-closed{
+    display: none;
+}
+.new-channel-errors{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: var(--border);
+    text-align: left;
+    padding: 10px 40px 10px 40px;
+    font-family: var(--sans-serif);
+    font-size: 14.7px;
+    font-weight: 400;
+}
+.error-bubble{
+    padding: 2px;
+    margin: 4px 0;
+    border-radius: 5px;
+    border: var(--error-border) solid 1px;
+    background-color: var(--error-background);
+    color: var(--font4);
+}
+#close-errors{
+    text-align: right;
+    color: var(--error-background)
 }
 #add-channel{
     position: relative;

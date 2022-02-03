@@ -4,10 +4,29 @@
 # Examples:
 #
 
-avis = ['https://i.imgur.com/hORmgOsb.jpg','https://i.imgur.com/TYxKjukb.jpg', 'https://i.imgur.com/nyTHuLVb.jpg' ,'https://i.imgur.com/HrUQ8Cib.jpg', 'https://i.imgur.com/Qc24rcNb.jpg', 'https://i.imgur.com/z4FM34eb.jpg', 'https://i.imgur.com/dCMd9uWb.jpg', 'https://i.imgur.com/07FBkCsb.jpg', 'https://i.imgur.com/eYGS5Psb.jpg', 'https://i.imgur.com/pjBFyZ7b.jpg']
-channels = ['https://i.imgur.com/fyToB3Bb.jpg', 'https://i.imgur.com/QiVyIU8b.jpg', 'https://i.imgur.com/kuuOaA8b.jpg', 'https://i.imgur.com/7lcNooHb.jpg', 'https://i.imgur.com/eGMM8zGb.jpg', 'https://i.imgur.com/lOaw1qvb.jpg']
+avis = [
+    'https://i.imgur.com/j9adtcsb.jpg', 
+    'https://i.imgur.com/hORmgOsb.jpg',
+    'https://i.imgur.com/TYxKjukb.jpg', 
+    'https://i.imgur.com/nyTHuLVb.jpg',
+    'https://i.imgur.com/HrUQ8Cib.jpg', 
+    'https://i.imgur.com/Qc24rcNb.jpg', 
+    'https://i.imgur.com/z4FM34eb.jpg', 
+    'https://i.imgur.com/dCMd9uWb.jpg', 
+    'https://i.imgur.com/07FBkCsb.jpg', 
+    'https://i.imgur.com/eYGS5Psb.jpg', 
+    'https://i.imgur.com/pjBFyZ7b.jpg',
+    'https://i.imgur.com/B22CBfFb.jpg',
+    'https://i.imgur.com/EBR8rOQb.jpg',
+    'https://i.imgur.com/EdZlPkKb.jpg',
+    'https://i.imgur.com/aRy02l9b.jpg',
+    'https://i.imgur.com/B7p0WWXb.jpg',
+    'https://i.imgur.com/dZtFNGcb.jpg',
+    'https://i.imgur.com/douh7U1b.jpg'
+]
+
 puts 'seeding...'
-100.times do 
+200.times do 
     password = Faker::Internet.password(min_length: 8, max_length: 20)
     User.create(
         username: Faker::Internet.unique.username(specifier: 3..20),
@@ -25,17 +44,18 @@ end
     )
 end
 
-20.times do 
+300.times do 
+    image = 'https://i.imgur.com/duWhxk0.png'
     Channel.create(
         name: Faker::Internet.unique.username(specifier: 3..20),
-        subject: Faker::Movie.unique.title,
-        image: channels.sample
+        subject: Faker::Movie.title,
+        image: image
     )
 end
 
-800.times do 
+4000.times do 
     Message.create(
-        content: Faker::TvShows::Friends.quote,
+        content: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true, random_sentences_to_add: 8),
         channel_id: Faker::Number.within(range: 1..5),
         user_id: Faker::Number.within(range: 1..101),
         votes: 0,

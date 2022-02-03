@@ -53,7 +53,7 @@ const channelDashboardSlice = createSlice({
         state.currentChannelMessagesStatus = "loading";
       },
       [fetchCurrentChannelMessages.fulfilled](state, action) {
-        state.currentChannelMessages = action.payload;
+        state.currentChannelMessages = action.payload
         state.currentChannelMessagesStatus = "idle";
       },
       [fetchChannels.pending](state) {
@@ -71,7 +71,8 @@ export const {
   setCurrentChannel, 
   setUserChannels, 
   addMessage, 
-  channelAdded 
+  channelAdded,
+  incrementMessageQuery
 } = channelDashboardSlice.actions;
 
 export default channelDashboardSlice.reducer; 

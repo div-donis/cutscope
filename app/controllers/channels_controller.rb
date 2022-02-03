@@ -1,5 +1,4 @@
 class ChannelsController < ApplicationController
-   skip_before_action :authorize, only: [:create, :index, :show]
     
     def index
         channels = Channel.all
@@ -20,7 +19,7 @@ class ChannelsController < ApplicationController
         if channel.valid?
         render json: channel, status: :created
         else
-        render json: { errors: channel.errors.full_channels }, status: :unprocessable_entity
+        render json: { errors: channel.errors.full_messages }, status: :unprocessable_entity
         end
     end
 
