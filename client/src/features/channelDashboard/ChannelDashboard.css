@@ -352,9 +352,17 @@
     background-color: var(--error-background);
     color: var(--font4);
 }
+.success-bubble{
+    padding: 2px;
+    margin: 4px 0;
+    border-radius: 5px;
+    border: var(--success-border) solid 1px;
+    background-color: var(--success-background);
+    color: var(--font4);
+}
 #close-errors{
     text-align: right;
-    color: var(--error-background)
+    color: var(--font4)
 }
 #add-channel{
     position: relative;

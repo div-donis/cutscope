@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"; 
+import { useSelector } from "react-redux";
 
 export const fetchChannels = createAsyncThunk("/channels/fetchChannels", async (name) => {
   return fetch(`/api/channels/by_name/${name}`)
@@ -47,6 +48,9 @@ const channelDashboardSlice = createSlice({
       addMessage(state, action) {
         state.currentChannelMessages.unshift(action.payload)
       },
+      upVote(state, action){
+        state.currentChannelMessages.find((x) => x.id === action.payload).votes++
+      }
     },
     extraReducers: {
       [fetchCurrentChannelMessages.pending](state) {
@@ -72,7 +76,8 @@ export const {
   setUserChannels, 
   addMessage, 
   channelAdded,
-  incrementMessageQuery
+  incrementMessageQuery,
+  upVote
 } = channelDashboardSlice.actions;
 
 export default channelDashboardSlice.reducer; 

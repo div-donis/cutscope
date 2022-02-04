@@ -1,24 +1,16 @@
 import React from 'react'
-import { userChannelAdded, setCurrentChannel, addMessage } from './channelDashboardSlice'
+import { userChannelAdded, setCurrentChannel } from './channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { GoPrimitiveDot } from 'react-icons/go'
-import { v4 as uuidv4 } from 'uuid';
 
 const ChannelList= ( { channel } ) => {
 
     const user = useSelector((state) => state.user.entity);
 
-    const timestamp = new Date()
-
     const values = {
-        content: `*${user.username} has joined the channel*`,
-        id: uuidv4(),
+        content: '000connectfixlink000',
         channel_id: channel.id,
-        user_id: user.id,
-        votes: 0,
-        created_at: timestamp.toISOString(),
-        user_username: user.username,
-        user_avatar: user.avatar
+        user_id: user.id
     }
 
     const dispatch = useDispatch()
@@ -34,7 +26,6 @@ const ChannelList= ( { channel } ) => {
             if (res.ok) { 
                 dispatch(userChannelAdded(channel))
                 dispatch(setCurrentChannel(channel))
-                dispatch(addMessage(values))
             }else{
                 dispatch(setCurrentChannel(channel))
             }

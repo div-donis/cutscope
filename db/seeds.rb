@@ -55,10 +55,10 @@ end
 
 4000.times do 
     Message.create(
-        content: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true, random_sentences_to_add: 8),
-        channel_id: Faker::Number.within(range: 1..5),
-        user_id: Faker::Number.within(range: 1..101),
-        votes: 0,
+        content: Faker::Lorem.paragraph(sentence_count: 5, supplemental: true, random_sentences_to_add: 10),
+        channel_id: Faker::Number.within(range: 1..300),
+        user_id: Faker::Number.within(range: 1..201),
+        votes: Faker::Number.within(range: 1..20000),
     )
 end
 puts 'done!'

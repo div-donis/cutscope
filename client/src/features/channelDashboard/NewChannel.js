@@ -21,7 +21,7 @@ const NewChannel = () => {
         setValues({
             ...values,
             [name]: value,
-            image: 'https://i.imgur.com/tqwpka0.png'
+            image: 'https://i.imgur.com/duWhxk0.png'
         })
     }
 
@@ -35,9 +35,7 @@ const NewChannel = () => {
             body: JSON.stringify(values)
         }).then((r) => {
             if (r.ok) { 
-                dispatch(channelAdded(values))
-                setValues(initialValues)
-                setErrors([])
+                setErrors(['Channel created!'])
             }else{
                 r.json().then((err)=>
                     setErrors(err.errors)
@@ -47,9 +45,10 @@ const NewChannel = () => {
     }     
 
     console.log(errors)
+
     return(
         <>
-            <div className={errors ? 'new-channel-errors' : 'new-channel-errors-closed'}><div id='close-errors' onClick={() => setErrors(null)}><VscChromeClose /></div>{errors?.map((err, i) => (<div className='error-bubble' key={i}>{err}</div>))}</div>
+            <div className={errors ? 'new-channel-errors' : 'new-channel-errors-closed'}><div id='close-errors' onClick={() => setErrors(null)}><VscChromeClose /></div>{errors?.map((err, i) => (<div className={err === 'Channel created!' ? 'success-bubble' : 'error-bubble'} key={i}>{err}</div>))}</div>
             <div className='new-channel'>
                 
                 <form onSubmit={handleSubmit}  autoComplete="off">
