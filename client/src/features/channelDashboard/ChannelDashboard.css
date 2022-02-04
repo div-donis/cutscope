@@ -48,8 +48,8 @@
 }
 .current-channel{
     background: var(--scheme4);
-    min-height: 50px;
-    max-height: 50px;
+    min-height: 38px;
+    max-height: 38px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,8 +116,8 @@
     text-align: left;   
 }
 .message-board-message-right .message-board-message{
-    margin: 0px 50px;
-    padding: 10px;
+    margin: 0px 20px;
+    padding: 10px 10px 0 10px;
     border-radius: 16px;
     
 }
@@ -127,8 +127,8 @@
 }
 .message-board-message-left .message-board-message{
 
-    margin: 0px 50px;
-    padding: 10px;
+    margin: 0px 20px;
+    padding: 10px 10px 0 10px;
     border-radius: 16px;
   
 }
@@ -368,4 +368,10 @@
     position: relative;
     top: 3px;
     left: 1px
+}
+#lgfad{
+    text-align: center;
+    font-size: 14.7px;
+    font-weight: 400;
+    color: var(--font4);
 }

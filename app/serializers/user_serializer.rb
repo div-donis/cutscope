@@ -4,5 +4,5 @@ class UserSerializer < ActiveModel::Serializer
   def channels
     object.channels.uniq
   end
-  
+
 end

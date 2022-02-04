@@ -30,7 +30,7 @@ const Channels = () => {
                         key={channel.name}
                         channel={channel}  
                     />
-                )) : null }
+                )) : <div id='lgfad'>Let's go for a dip! <div style={{display: 'inline'}}>&#127754;</div></div>}
             </ul>
             <NewChannel />
         </div>

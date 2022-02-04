@@ -14,12 +14,12 @@ class MessagesController < ApplicationController
     end
 
     def create
-        message = Message.create(message_params)
-        if message.valid?
+        message = Message.new(message_params)
+        if message.save
             channel = message.channel
             ChannelsChannel.broadcast_to(channel, {
-                channel: channel,
-                users: channel.users,
+                channel: channel, 
+                users: channel.users, 
                 messages: channel.messages
             })
             render json: message, status: :created

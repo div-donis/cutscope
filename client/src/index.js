@@ -6,23 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from './store'
-import actionCable from 'actioncable'
-
-const cableApp = {}
-
-cableApp.cable = actionCable.createConsumer('ws://localhost::3000/cable')
-
-export const ActionCableContext = createContext()
-
-console.log(cableApp)
+import { ActionCableProvider } from 'react-actioncable-provider'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Provider store={store}>
-        <ActionCableContext.Provider value={cableApp.cable}>
+        <ActionCableProvider url={'ws:://localhoast:3000/cable'}>  
           <App />
-        </ActionCableContext.Provider>
+        </ActionCableProvider>
       </Provider>
     </Router>
   </React.StrictMode>,
