@@ -21,7 +21,6 @@ const NewChannel = () => {
         setValues({
             ...values,
             [name]: value,
-            image: 'https://i.imgur.com/duWhxk0.png'
         })
     }
 

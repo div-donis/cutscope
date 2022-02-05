@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { addMessage } from './channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 import { AiOutlineSend } from 'react-icons/ai'
+import { ActionCableContext } from '../../index';
 
 const MessageInput = () => {
 
@@ -36,6 +37,26 @@ const MessageInput = () => {
         })
     }
 
+    const [channel, setChannel] = useState(null)
+
+    const cable = useContext(ActionCableContext)
+    
+    useEffect(() => {
+        if(currentChannel){
+            const channel = cable.subscriptions.create({
+                channel: 'MessageChannel',
+                id: currentChannel.id
+            })
+        
+
+            setChannel(channel)
+
+            return () => {
+                channel.unsubscribe()
+            }
+        }
+    }, [currentChannel])
+
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch('/api/messages', {
@@ -48,6 +69,7 @@ const MessageInput = () => {
             if (res.ok) { 
                 dispatch(addMessage(values))
                 setValues(initialValues)
+                channel.send(values)
                 }
             })
             .catch(console.error);    

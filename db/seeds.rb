@@ -45,11 +45,9 @@ end
 end
 
 300.times do 
-    image = 'https://i.imgur.com/duWhxk0.png'
     Channel.create(
         name: Faker::Internet.unique.username(specifier: 3..20),
-        subject: Faker::Movie.title,
-        image: image
+        subject: Faker::Movie.title
     )
 end
 
@@ -58,7 +56,7 @@ end
         content: Faker::Lorem.paragraph(sentence_count: 5, supplemental: true, random_sentences_to_add: 10),
         channel_id: Faker::Number.within(range: 1..300),
         user_id: Faker::Number.within(range: 1..201),
-        votes: Faker::Number.within(range: 1..20000),
+        votes: Faker::Number.within(range: 1..1500),
     )
 end
 puts 'done!'

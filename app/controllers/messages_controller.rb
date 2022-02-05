@@ -14,14 +14,8 @@ class MessagesController < ApplicationController
     end
 
     def create
-        message = Message.new(message_params)
-        if message.save
-            channel = message.channel
-            ChannelsChannel.broadcast_to(channel, {
-                channel: channel, 
-                users: channel.users, 
-                messages: channel.messages
-            })
+        message = Message.create(message_params)
+        if message.valid?
             render json: message, status: :created
         else
             render json: { errors: message.errors.full_messages }, status: :unprocessable_entity

@@ -27,11 +27,17 @@
     border: 2px solid var(--scheme4); /* should match background, can't be transparent */
     background-color: var(--scheme2);
 }
-.channel-rack img{
-    height: 45px;
-    width: 45px;
-    border-radius: 60px;
+.user-channel-emblem{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
     margin: 0 6px 4px 6px;
+    color: var(--font2);
+    line-height: 50px;
+    font-size: 24px;
+    font-family: var(--sans-serif);
+    background-color: var(--scheme3);
+    font-weight: 700;
 }
 .channel-rack-channel-details{
     display: flex;
@@ -39,12 +45,15 @@
     align-items: center;
     user-select: none;
 }
-.channel-rack-channel-details div{
+.user-channel-name{
     width: 60px;
     text-overflow: ellipsis; 
     overflow: hidden; 
     white-space: nowrap;
-    margin: 0 2px
+    margin: 0 4px;
+    font-size: 15.6px;
+    font-weight: 500;
+    color: var(--font4);
 }
 .current-channel{
     background: var(--scheme4);
@@ -112,21 +121,8 @@
     color: yellow;
     
 }
-.message-board-message-right{
+.message-board-message{
     text-align: left;   
-}
-.message-board-message-right .message-board-message{
-    margin: 0px 20px;
-    padding: 10px 10px 0 10px;
-    border-radius: 16px;
-    
-}
-.message-board-message-left{
-    text-align: left;  
-    
-}
-.message-board-message-left .message-board-message{
-
     margin: 0px 20px;
     padding: 10px 10px 0 10px;
     border-radius: 16px;
