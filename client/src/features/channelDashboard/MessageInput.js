@@ -1,11 +1,14 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { addMessage } from './channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 import { AiOutlineSend } from 'react-icons/ai'
-import { ActionCableContext } from '../../index';
+import { createConsumer } from '@rails/actioncable'
+import { useParams } from 'react-router'
 
 const MessageInput = () => {
+
+    const params = useParams()
 
     const initialValues =  {
         content: '',
@@ -36,26 +39,38 @@ const MessageInput = () => {
             user_avatar: user.avatar
         })
     }
-
-    const [channel, setChannel] = useState(null)
-
-    const cable = useContext(ActionCableContext)
     
     useEffect(() => {
-        if(currentChannel){
-            const channel = cable.subscriptions.create({
-                channel: 'MessageChannel',
-                id: currentChannel.id
-            })
-        
 
-            setChannel(channel)
+       const cable = createConsumer('ws://localhost/3000/cable')
 
-            return () => {
-                channel.unsubscribe()
-            }
-        }
-    }, [currentChannel])
+       const paramsGo = {
+           channel: 'ChannelsChannel',
+           id: params.id
+       }
+
+       const handlers = {
+           received(data){
+               dispatch(addMessage(data))
+           },
+           connected(){
+               console.log('connected')
+           },
+           disconnected(){
+               console.log('disconnected')
+           }
+       }
+
+       const subscription = cable.subscriptions.create(paramsGo, handlers)
+
+       return function cleanup() {
+           console.log('unsubscribing...' , params.id)
+           cable.current = null
+           subscription.unsubscribe()
+       }
+
+
+    }, [params.id])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -69,7 +84,6 @@ const MessageInput = () => {
             if (res.ok) { 
                 dispatch(addMessage(values))
                 setValues(initialValues)
-                channel.send(values)
                 }
             })
             .catch(console.error);    

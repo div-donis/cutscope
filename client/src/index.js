@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -6,21 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from './store'
-import actioncable from 'actioncable'
-
-const cableApp = {}
-
-cableApp.cable = actioncable.createConsumer('ws://localhost:3000/cable')
-
-export const ActionCableContext = createContext()
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Provider store={store}>
-        <ActionCableContext.Provider value={cableApp.cable}>  
           <App />
-        </ActionCableContext.Provider>
       </Provider>
     </Router>
   </React.StrictMode>,

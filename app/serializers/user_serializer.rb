@@ -1,4 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
+
   attributes :id, :username, :avatar, :channels
 
   def channels

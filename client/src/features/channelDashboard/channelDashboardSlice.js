@@ -6,8 +6,8 @@ export const fetchChannels = createAsyncThunk("/channels/fetchChannels", async (
       .then((data) => data);
 }); 
 
-export const fetchCurrentChannelMessages = createAsyncThunk("/channels/fetchCurrentChannelMessages", async (id) => {
-  return fetch(`/api/messages/by_channel/${id}`)
+export const fetchChannelMessages = createAsyncThunk("/channels/fetchChannelMessages", async (id) => {
+  return fetch(`/api/channel_with_messages/${id}`)
       .then((res) => res.json())
       .then((data) => data);
 })
@@ -19,8 +19,8 @@ const channelDashboardSlice = createSlice({
         channelsStatus: 'idle', 
         userChannels: [],
         currentChannel: '',
-        currentChannelMessages: [],
-        currentChannelMessagesStatus: 'idle'
+        channelMessages: [],
+        channelMessagesStatus: 'idle'
     },
     reducers : {
       channelAdded(state, action) {
@@ -45,16 +45,16 @@ const channelDashboardSlice = createSlice({
         state.currentChannel = action.payload
       },
       addMessage(state, action) {
-        state.currentChannelMessages.unshift(action.payload)
+        state.channelMessages.unshift(action.payload)
       },
     },
     extraReducers: {
-      [fetchCurrentChannelMessages.pending](state) {
-        state.currentChannelMessagesStatus = "loading";
+      [fetchChannelMessages.pending](state) {
+        state.channelMessagesStatus = "loading";
       },
-      [fetchCurrentChannelMessages.fulfilled](state, action) {
-        state.currentChannelMessages = action.payload
-        state.currentChannelMessagesStatus = "idle";
+      [fetchChannelMessages.fulfilled](state, action) {
+        state.channelMessages = action.payload.messages
+        state.channelMessagesStatus = "idle";
       },
       [fetchChannels.pending](state) {
         state.ChannelsStatus = "loading";

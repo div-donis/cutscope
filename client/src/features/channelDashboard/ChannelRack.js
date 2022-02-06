@@ -29,7 +29,7 @@ useEffect(() => {
         <div className='channel-rack'>
             {userChannels.map((userChannel) => 
                 <div key={userChannel.id} className='channel-rack-channel-details'>
-                    <div className='user-channel-emblem' onClick={() => handleSetChannel(userChannel)}>{userChannel.name.charAt(0).toUpperCase()}</div>
+                    <img alt='channel' src='https://i.imgur.com/8Q8zvQZ.png' className='user-channel-emblem' onClick={() => handleSetChannel(userChannel)}></img>
                     <div className='user-channel-name'>{userChannel.name}</div>
                 </div>
             )}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { fetchCurrentChannelMessages } from "./channelDashboardSlice";
+import { fetchChannelMessages } from "./channelDashboardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Message from './Message';
 
@@ -9,11 +9,11 @@ const MessageBoard = () => {
 
     const currentChannel = useSelector((state) => state.channelDashboard.currentChannel);
 
-    const messages = useSelector((state) => state.channelDashboard.currentChannelMessages);
+    const messages = useSelector((state) => state.channelDashboard.channelMessages);
 
     useEffect(() => {
         if(currentChannel){
-            dispatch(fetchCurrentChannelMessages(currentChannel.id))
+            dispatch(fetchChannelMessages(currentChannel.id))
         }
     }, [currentChannel, dispatch])
 
@@ -29,7 +29,7 @@ const MessageBoard = () => {
             <div className='message-container'>
                 {messages && currentChannel?.id === messages[0]?.channel_id ? 
                     messages.map((message) => 
-                    <Message message={message}/>
+                    <Message key={message.id} message={message}/>
                     )
                 : 'loading...'}
             </div> 
