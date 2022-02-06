@@ -6,9 +6,8 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, setStatus } from './features/user/userSlice'
-import Cable from './Cable';
 
-const App = ( {cableApp} ) => {
+const App = () => {
 
   const dispatch = useDispatch();
 
@@ -34,7 +33,6 @@ const App = ( {cableApp} ) => {
             <Route path='/dashboard' element={<Dashboard />}/>
             <Route path="/*" element={<Navigate to="/dashboard" />}/>
           </Routes>
-          <Cable cableApp={cableApp}/>
       </div>
     )
   } else {

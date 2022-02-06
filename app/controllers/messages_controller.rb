@@ -19,9 +19,8 @@ class MessagesController < ApplicationController
         if message.save
             channel = message.channel
             ChannelsChannel.broadcast_to(channel,{ 
-                channel: channel,
-                users: channel.users,
-                messages: channel.messages
+                message: channel.messages.last,
+                user: channel.messages.last.user
             })
             render json: message, status: :created
         else

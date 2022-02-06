@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { addMessage } from './channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
-import { v4 as uuidv4 } from 'uuid';
 import { AiOutlineSend } from 'react-icons/ai'
-import { createConsumer } from '@rails/actioncable'
-import { useParams } from 'react-router'
+import { cableApp } from '../..';
 
 const MessageInput = () => {
-
-    const params = useParams()
 
     const initialValues =  {
         content: '',
@@ -22,7 +18,10 @@ const MessageInput = () => {
 
     const user = useSelector((state) => state.user.entity);
 
+    console.log(cableApp)
+
     const handleInputChange = (e) => {
+
         const { name, value } = e.target
 
         const timestamp = new Date()
@@ -30,7 +29,6 @@ const MessageInput = () => {
         setValues({
             ...values,
             [name]: value,
-            id: uuidv4(),
             channel_id: currentChannel.id,
             user_id: user.id,
             votes: 0,
@@ -39,38 +37,38 @@ const MessageInput = () => {
             user_avatar: user.avatar
         })
     }
+
     
+
     useEffect(() => {
-
-       const cable = createConsumer('ws://localhost/3000/cable')
-
-       const paramsGo = {
-           channel: 'ChannelsChannel',
-           id: params.id
-       }
-
-       const handlers = {
-           received(data){
-               dispatch(addMessage(data))
-           },
-           connected(){
-               console.log('connected')
-           },
-           disconnected(){
-               console.log('disconnected')
-           }
-       }
-
-       const subscription = cable.subscriptions.create(paramsGo, handlers)
-
-       return function cleanup() {
-           console.log('unsubscribing...' , params.id)
-           cable.current = null
-           subscription.unsubscribe()
-       }
-
-
-    }, [params.id])
+        if (currentChannel){
+            cableApp.room = cableApp.cable.subscriptions.create({
+                channel: 'ChannelsChannel',
+                room: currentChannel.id     
+            },
+            {
+                received: (data) => {
+                    const message = {
+                        id: data.message.id,
+                        content: data.message.content,
+                        channel_id: data.message.channel_id,
+                        user_id: data.message.user_id,
+                        votes: data.message.votes,
+                        created_at: data.message.created_at,
+                        user_username: data.user.username,
+                        user_avatar: data.user.avatar
+                    }
+                    dispatch(addMessage(message))
+                },
+                connected: () => {
+                    console.log('connected')
+                },
+                disconnected: () => {
+                    console.log('disconnected')
+            },
+            })
+        }
+    }, [currentChannel])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -82,14 +80,12 @@ const MessageInput = () => {
             body: JSON.stringify(values)
         }).then((res) => {
             if (res.ok) { 
-                dispatch(addMessage(values))
                 setValues(initialValues)
                 }
             })
             .catch(console.error);    
     }
     
-
     return(
         <div className='message-input'>
             <form className='message-form' autoFocus onSubmit={handleSubmit}>

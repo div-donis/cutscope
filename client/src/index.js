@@ -8,17 +8,15 @@ import { Provider } from "react-redux";
 import store from './store'
 import actionCable from 'actioncable'
 
-const cableApp = {}
+export const cableApp = {}
 
-cableApp.cable = actionCable.createConsumer('ws://localhost/3000/cable')
-
-console.log(cableApp)
+cableApp.cable = actionCable.createConsumer('ws://localhost:3000/cable')
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Provider store={store}>
-          <App cableApp={cableApp}/>
+          <App />
       </Provider>
     </Router>
   </React.StrictMode>,
