@@ -45,8 +45,10 @@ function SignUp() {
   
     return (
     <div className='signup'>
+            <div className="auth-forward"> Already have an account? <div style={{display: 'inline'}} onClick={() => navigate('/')}>Log In</div></div>
         <form className='auth-form' onSubmit={handleSubmit} autoComplete="new-password">
-          <div className="logo"><img alt='logo' src='https://i.imgur.com/oWqc2lw.png'></img></div>
+          <div className="logo"><img alt='logo' src='https://i.imgur.com/fASKYWx.png'></img><div id='rotoswim' style={{display: 'inline'}}>rotoswim</div></div>
+          <div className="auth-inputs">
           <p>
               <label htmlFor="username"></label>
               <input
@@ -77,8 +79,9 @@ function SignUp() {
               onChange={(e) => setPasswordConfirmation(e.target.value)}
               />
           </p>
+          </div>
           <button type="submit">Sign Up</button>
-          <div className="login-errors">{errors.map((err) => (<div key={err.id} className="error-message">{err}</div>))}</div>
+          { errors.length > 0 ? <div className="login-error-bubble">{errors.map((err) => (<div key={err.id} className="error-message">{err}</div>))}</div>: null}
         </form>
     </div>
     );

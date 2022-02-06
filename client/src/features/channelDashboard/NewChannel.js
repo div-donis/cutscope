@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { channelAdded } from './channelDashboardSlice'
-import { useDispatch } from 'react-redux'
 import { VscAdd, VscChromeClose } from 'react-icons/vsc'
 
 const initialValues =  {
@@ -12,8 +10,6 @@ const NewChannel = () => {
 
     const [values, setValues] = useState(initialValues)
     const [errors, setErrors] = useState(null)
-
-    const dispatch = useDispatch();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target

@@ -1,17 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
+
 body{
-    background-color: var(--scheme2);
+    background-color: var(--scheme3);
+    height: 100vh;
+    width: 100%;
+}
+.signup, .login{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .auth-form{
-    margin: 100px auto 0 auto;
-    height: 600px;
+    height: 700px;
     width: 500px;
     background-color: var(--scheme3);
     color: var(--font4);
     font-family: var(--sans-serif);
     font-weight: 600;
     font-size: 16.8px;
-    border-radius: 20px;
-    border: 1px solid var(--blue);
+    border-radius: 5px;
+    border: var(--border2);
 }
 .auth-form input{
     border: none;
@@ -22,19 +32,33 @@ body{
     border-radius: 5px;
     padding: 0px 5px;
     border: 1px solid var(--scheme2);
+    width: 200px;
 }
 .auth-form input:focus, input:focus{
     outline: none;
     border: 1px solid var(--blue);
 }
+.auth-inputs{
+    margin-top: 60px;
+}
 .logo{
     height: 200px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: var(--scheme3);
-    border-radius: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: var(--border2);
+}
+#rotoswim{
+    font-size: 45px;
+    position: relative;
+    bottom: 16px;
+    left: -10px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
 }
 .logo img{
     height: 100px
@@ -45,14 +69,34 @@ body{
     color: var(--font3);
     border: none;
     border-radius: 5px;
-    margin-top: 10px;
-    height: 50px;
+    margin: 10px 0 10px 0;
+    height: 40px;
     width: 100px;
 }
-.login-errors{
-    margin-top: 30px;
-    color: red;
-}
 .error-message{
-    margin: 10px 0;
+    color: red;
+    padding: 2px 8px;
+    margin: 10px auto 4px auto;
+    border-radius: 5px;
+    border: var(--error-border) solid 1px;
+    background-color: var(--error-background);
+    color: var(--font4);
+    width: fit-content
+}
+.auth-forward{
+    font-family: var(--sans-serif);
+    font-size: 20.6px;
+    font-weight: 400;
+    color: var(--font4);
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    user-select: none;
+}
+.auth-forward div{
+    font-weight: 600;
+}
+.auth-forward div:hover{
+    font-weight: 600;
+    text-decoration: underline;
 }

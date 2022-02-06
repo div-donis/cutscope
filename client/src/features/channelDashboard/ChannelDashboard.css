@@ -3,7 +3,10 @@
     display: flex;
     flex-direction: column;
 }
-
+.channels{
+    background-color: var(--scheme2);
+    z-index: 2;
+}
 .channel-rack{
     background-color: var(--scheme4);
     min-height: 100px;
@@ -96,6 +99,7 @@
     font-size: 15.6px;
     font-weight: 500;
     color: var(--font4);
+    user-select: none;
 }
 .message-board-message-votes{
     width: min-content;
@@ -108,6 +112,9 @@
     border-radius: 5px;
     display: flex;
     user-select: none;
+}
+.idle-message{
+    margin-top: 10px;
 }
 #star{
     position: relative;

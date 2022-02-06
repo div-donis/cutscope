@@ -41,7 +41,7 @@
     border-bottom: var(--border);
     transition: ease height .4s;
     color: var(--font5);  
-    z-index: -2;
+    
 }
 .user-menu-arrow-down{
     user-select: none;

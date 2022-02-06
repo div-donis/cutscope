@@ -1,5 +1,5 @@
 import React from 'react'
-import { setUser, setStatus } from './userSlice'
+import { setUser } from './userSlice'
 import { useNavigate } from "react-router-dom";
 import { FiSettings, FiLogOut } from 'react-icons/fi'
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,13 +12,12 @@ const UserMenu = () => {
 
     const navigate = useNavigate()
 
-    function handleLogout() {
+    const handleLogout = () => {
         fetch("/logout", {
           method: "DELETE",
         }).then((r) => {
           if (r.ok) {
             dispatch(setUser(null))
-            dispatch(setStatus('failed'))
             navigate('/')   
           }
         })
@@ -27,8 +26,8 @@ const UserMenu = () => {
     return(
         <div className={ menuActive ? 'user-drop-active' : 'user-drop'}>
             <ul className='user-menu'>
-                <li key='settings'><FiSettings id='account-settings'/> Account Settings</li>
-                <li key='logout' onClick={handleLogout}><FiLogOut id='logout' />Logout</li>
+                <li ><FiSettings id='account-settings'/> Account Settings</li>
+                <li onClick={handleLogout}><FiLogOut id='logout' />Logout</li>
             </ul>
         </div>
     )

@@ -48,12 +48,13 @@ function LogIn() {
     } else {
         return (
             <div className='login'>
+            <div className="auth-forward"> Need an account? <div style={{display: 'inline'}} onClick={() => navigate('/signup')}>Sign Up</div></div>
             <form onSubmit={handleSubmit} className='auth-form' autoComplete="new-password" >
-                <div className="logo"><img alt='logo' src='https://i.imgur.com/oWqc2lw.png'></img></div>
-                <p>
+                <div className="logo"><img alt='logo' src='https://i.imgur.com/fASKYWx.png'></img><div id='rotoswim' style={{display: 'inline'}}>rotoswim</div></div>
+                <div className="auth-inputs">
+                    <p>
                     <label htmlFor="username"></label>
                     <input
-                    autoComplete="off" 
                     name='username'
                     type="text"
                     value={username}
@@ -64,17 +65,18 @@ function LogIn() {
                 <p>
                     <label htmlFor="password"></label>
                     <input
-                    autoComplete="off"
                     name="password"
                     type="password"
+                    id="password"
                     value={password}
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     />
                 </p>
+                </div>
                 <button type="submit">Login</button>
-            </form>
-            <div className="login-errors">{errors?.map((err) => (<div key={err.id} className="login-errors">{err}</div>))}</div>
+                <div className="login-error-bubble">{errors?.map((err) => (<div key={err.id} className="error-message">{err}</div>))}</div>
+            </form> 
             </div>
         );
     }

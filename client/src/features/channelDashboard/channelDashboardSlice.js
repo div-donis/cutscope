@@ -23,9 +23,6 @@ const channelDashboardSlice = createSlice({
         channelMessagesStatus: 'idle'
     },
     reducers : {
-      channelAdded(state, action) {
-        state.channels.push(action.payload);
-      },
       setUserChannels(state, action) {
         state.userChannels = action.payload;
       },
@@ -71,7 +68,6 @@ export const {
   setCurrentChannel, 
   setUserChannels, 
   addMessage, 
-  channelAdded,
 } = channelDashboardSlice.actions;
 
 export default channelDashboardSlice.reducer; 

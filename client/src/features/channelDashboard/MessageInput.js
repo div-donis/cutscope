@@ -58,7 +58,9 @@ const MessageInput = () => {
                         user_username: data.user.username,
                         user_avatar: data.user.avatar
                     }
-                    dispatch(addMessage(message))
+                    if (message.content !== '000connectfixlink000'){
+                        dispatch(addMessage(message))
+                    }
                 },
                 connected: () => {
                     console.log('connected')
