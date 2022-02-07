@@ -75,7 +75,7 @@ function LogIn() {
                 </p>
                 </div>
                 <button type="submit">Login</button>
-                <div className="login-error-bubble">{errors?.map((err) => (<div key={err.id} className="error-message">{err}</div>))}</div>
+                <div className="login-error-bubble">{errors?.map((err) => (<div key={err.id} className="error-message">*{err}*</div>))}</div>
             </form> 
             </div>
         );

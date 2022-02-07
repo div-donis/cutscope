@@ -20,14 +20,14 @@ const ChannelRack = () => {
     const currentChannel = useSelector((state) => state.channelDashboard.currentChannel);
 
 useEffect(() => {
-    if(!currentChannel){
+    if(userChannels.length > 0 && !currentChannel){
         dispatch(setCurrentChannel(userChannels[0]))
     }
-},[currentChannel])
+},[currentChannel, userChannels])
 
     return(
         <div className='channel-rack'>
-            {userChannels.map((userChannel) => 
+            {userChannels.length < 1 ? <div id='no-channels'> Your channels will appear here. </div> : userChannels.map((userChannel) => 
                 <div key={userChannel.id} className='channel-rack-channel-details'>
                     <img alt='channel' src='https://i.imgur.com/iLI8EYT.png' className='user-channel-emblem' onClick={() => handleSetChannel(userChannel)}></img>
                     <div className='user-channel-name'>{userChannel.name}</div>

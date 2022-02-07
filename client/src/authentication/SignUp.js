@@ -81,7 +81,7 @@ function SignUp() {
           </p>
           </div>
           <button type="submit">Sign Up</button>
-          { errors.length > 0 ? <div className="login-error-bubble">{errors.map((err) => (<div key={err.id} className="error-message">{err}</div>))}</div>: null}
+          { errors.length > 0 ? <div className="login-error-bubble">{errors.map((err) => (<div key={err.id} className="error-message">*{err}*</div>))}</div>: null}
         </form>
     </div>
     );

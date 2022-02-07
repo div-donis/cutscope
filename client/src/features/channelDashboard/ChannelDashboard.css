@@ -7,6 +7,9 @@
     background-color: var(--scheme2);
     z-index: 2;
 }
+#no-channels{
+    margin: 0 auto;
+}
 .channel-rack{
     background-color: var(--scheme4);
     min-height: 100px;
@@ -99,7 +102,6 @@
     font-size: 15.6px;
     font-weight: 500;
     color: var(--font4);
-    user-select: none;
 }
 .message-board-message-votes{
     width: min-content;
