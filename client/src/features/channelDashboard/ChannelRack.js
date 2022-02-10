@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentChannel, setUserChannels } from './channelDashboardSlice'
+import { GoPrimitiveDot } from 'react-icons/go'
 
 const ChannelRack = () => {
     const dispatch = useDispatch();
@@ -27,12 +28,17 @@ useEffect(() => {
 
     return(
         <div className='channel-rack'>
-            {userChannels.length < 1 ? <div id='no-channels'> Your channels will appear here. </div> : userChannels.map((userChannel) => 
-                <div key={userChannel.id} className='channel-rack-channel-details'>
-                    <img alt='channel' src='https://i.imgur.com/iLI8EYT.png' className='user-channel-emblem' onClick={() => handleSetChannel(userChannel)}></img>
-                    <div className='user-channel-name'>{userChannel.name}</div>
-                </div>
-            )}
+            <div id='spacedes'></div>
+            <div className='user-channels-header'>User Channels</div>
+            <div className='user-channel-cont'>
+                {userChannels.length < 1 ? <div id='no-channels'> Your channels will appear here. </div> : userChannels.map((userChannel) => 
+                    <div key={userChannel.id} onClick={() => handleSetChannel(userChannel)} className='channel-rack-channel-details'>
+                        <GoPrimitiveDot id='user-channel-dot' style={userChannel.unreads ? { color:  'var(--dot-green)'}: { color: 'var(--scheme5)'}} />
+                        <div className='user-channel-name'>{userChannel.name}</div>
+                        <div className='user-channel-subject'>{userChannel.subject}</div>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

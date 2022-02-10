@@ -22,6 +22,7 @@ class ChannelsController < ApplicationController
                 id: channel.id, 
                 name: channel.name, 
                 subject: channel.subject, 
+                unreads: channel.unreads,
                 users: channel.users,
                 messages: messages.map { |message| 
                     if message.content != '000connectfixlink000' then {
@@ -63,7 +64,7 @@ class ChannelsController < ApplicationController
     private
 
     def channel_params
-        params.permit(:name, :subject)
+        params.permit(:name, :subject, :unreads)
     end
     
 end

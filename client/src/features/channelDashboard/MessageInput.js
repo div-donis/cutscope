@@ -38,17 +38,18 @@ const MessageInput = () => {
         })
     }
 
-    
+    console.log(currentChannel)
 
     useEffect(() => {
         if (currentChannel){
             cableApp.room = cableApp.cable.subscriptions.create({
-                channel: 'ChannelsChannel',
-                room: currentChannel.id     
+                channel: 'ChannelChannel',
+                room: 228    
             },
             {
                 received: (data) => {
-                    const message = {
+                    console.log(data)
+                   { /*const message = {
                         id: data.message.id,
                         content: data.message.content,
                         channel_id: data.message.channel_id,
@@ -60,7 +61,7 @@ const MessageInput = () => {
                     }
                     if (message.content !== '000connectfixlink000'){
                         dispatch(addMessage(message))
-                    }
+                    }*/}
                 },
                 connected: () => {
                     console.log('connected')
@@ -70,7 +71,7 @@ const MessageInput = () => {
             },
             })
         }
-    }, [currentChannel])
+    }, [currentChannel.id])
 
     const handleSubmit = (e) => {
         e.preventDefault()

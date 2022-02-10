@@ -24,7 +24,7 @@ function LogIn() {
             },
             body: JSON.stringify({ 
                 username: username, 
-                password : password
+                password: password
             }),
         })
         .then((r)=>{

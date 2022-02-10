@@ -11,6 +11,8 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  config.action_controller.action_on_unpermitted_parameters = :raise
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

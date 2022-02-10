@@ -21,7 +21,8 @@
   --success-border: #0ae039;
   --success-background: rgb(13, 116, 21);
   --blue: #4e42f0;
-  --green: #4e4e4e5b;
+  --gray: #48484b81;
+  --dot-green: #42f050;
   --sans-serif: 'Source Sans Pro', sans-serif;
   --mono: 'JetBrains Mono', monospace;
 }

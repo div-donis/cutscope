@@ -3,6 +3,7 @@ import Channels from './features/channelDashboard/Channels'
 import ChannelDashboard from './features/channelDashboard/ChannelDashboard'
 import './Dashboard.css'
 import UserMenu from './features/user/UserMenu'
+import ChannelRack from './features/channelDashboard/ChannelRack'
 
 const Dashboard = ( { onLogOut, user }) => {
 
@@ -17,8 +18,11 @@ const Dashboard = ( { onLogOut, user }) => {
                 />
                 <Channels />
             </div>
-            <div className='right-container'> 
+            <div className='middle-container'> 
                 <ChannelDashboard />
+            </div>
+            <div className='right-container'> 
+                <ChannelRack />
             </div>
         </div>
     )

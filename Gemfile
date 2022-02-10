@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.7.4"
+gem 'pry'
+
+gem "aws-sdk-s3", "~> 1.112"
+gem "dotenv-rails", "~> 2.7", :require => 'dotenv/rails-now'
 
 gem 'rack-cors'
 
@@ -15,7 +19,7 @@ gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -54,3 +58,4 @@ group :test do
 end
 
 gem "active_model_serializers", "~> 0.10.12"
+

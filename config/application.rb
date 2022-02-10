@@ -19,6 +19,8 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
 module ReactRailsApiProjectTemplate
   class Application < Rails::Application
     # Adding cookies and session middleware
