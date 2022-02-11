@@ -42,7 +42,18 @@ const channelDashboardSlice = createSlice({
         state.currentChannel = action.payload
       },
       addMessage(state, action) {
-        state.channelMessages.unshift(action.payload)
+        const data = action.payload
+          const message = {
+              id: data.message.id,
+              content: data.message.content,
+              channel_id: data.message.channel_id,
+              user_id: data.message.user_id,
+              votes: data.message.votes,
+              created_at: data.message.created_at,
+              user_username: data.user.username,
+              user_avatar: data.user.avatar
+          }
+        state.channelMessages.unshift(message)
       },
     },
     extraReducers: {

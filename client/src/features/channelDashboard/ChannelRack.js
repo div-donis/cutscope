@@ -33,7 +33,7 @@ useEffect(() => {
             <div className='user-channel-cont'>
                 {userChannels.length < 1 ? <div id='no-channels'> Your channels will appear here. </div> : userChannels.map((userChannel) => 
                     <div key={userChannel.id} onClick={() => handleSetChannel(userChannel)} className='channel-rack-channel-details'>
-                        <GoPrimitiveDot id='user-channel-dot' style={userChannel.unreads ? { color:  'var(--dot-green)'}: { color: 'var(--scheme5)'}} />
+                        <GoPrimitiveDot id='user-channel-dot'/>
                         <div className='user-channel-name'>{userChannel.name}</div>
                         <div className='user-channel-subject'>{userChannel.subject}</div>
                     </div>

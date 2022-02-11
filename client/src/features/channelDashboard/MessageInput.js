@@ -44,23 +44,13 @@ const MessageInput = () => {
         if (currentChannel){
             cableApp.room = cableApp.cable.subscriptions.create({
                 channel: 'ChannelChannel',
-                room: 228    
+                room: currentChannel.id  
             },
             {
                 received: (data) => {
                     console.log(data)
-                    const message = {
-                        id: data.message.id,
-                        content: data.message.content,
-                        channel_id: data.message.channel_id,
-                        user_id: data.message.user_id,
-                        votes: data.message.votes,
-                        created_at: data.message.created_at,
-                        user_username: data.user.username,
-                        user_avatar: data.user.avatar
-                    }
-                    if (message.content !== 'F4FvR%DfmyOEbaP=K3aZ'){
-                        dispatch(addMessage(message))
+                    if (data.message.content !== 'F4FvR%DfmyOEbaP=K3aZ'){
+                        dispatch(addMessage(data))
                     }
                 },
                 connected: () => {
@@ -71,7 +61,7 @@ const MessageInput = () => {
             },
             })
         }
-    }, [currentChannel.id])
+    }, [currentChannel])
 
     const handleSubmit = (e) => {
         e.preventDefault()
