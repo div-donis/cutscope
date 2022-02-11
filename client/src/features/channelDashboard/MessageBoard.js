@@ -11,10 +11,9 @@ const MessageBoard = () => {
 
     const messages = useSelector((state) => state.channelDashboard.channelMessages);
 
-    const status = useSelector((state) => state.channelDashboard.channelMessagesStatus);
-
     useEffect(() => {
         if(currentChannel){
+            console.log(currentChannel)
             dispatch(fetchChannelMessages(currentChannel.id))
         }
     }, [currentChannel, dispatch])

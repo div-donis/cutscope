@@ -22,10 +22,9 @@ class ChannelsController < ApplicationController
                 id: channel.id, 
                 name: channel.name, 
                 subject: channel.subject, 
-                unreads: channel.unreads,
                 users: channel.users,
                 messages: messages.map { |message| 
-                    if message.content != '000connectfixlink000' then {
+                    if message.content != 'F4FvR%DfmyOEbaP=K3aZ' then {
                         id: message.id,
                         content: message.content,
                         channel_id: message.channel_id,
