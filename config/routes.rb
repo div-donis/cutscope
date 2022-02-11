@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 's3/direct_post'
   mount ActionCable.server => '/cable'
 
   post "/login", to: "sessions#create" 
@@ -10,6 +9,8 @@ Rails.application.routes.draw do
   get "/self", to: "users#show" 
 
   delete "/logout", to: "sessions#destroy" 
+
+  post '/presigned_url', to: 'direct_upload#create'
 
   scope '/api' do 
 

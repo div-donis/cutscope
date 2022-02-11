@@ -64,7 +64,7 @@ class ChannelsController < ApplicationController
     private
 
     def channel_params
-        params.permit(:name, :subject, :unreads)
+        params.permit(:name, :subject)
     end
     
 end

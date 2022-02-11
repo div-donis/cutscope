@@ -37,6 +37,10 @@ const MessageInput = () => {
             user_avatar: user.avatar
         })
     }
+    
+    useEffect(() => {
+        setValues(initialValues)
+    }, [currentChannel])
 
     console.log(currentChannel)
 

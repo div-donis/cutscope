@@ -1,4 +1,4 @@
 class ChannelSerializer < ActiveModel::Serializer
-  attributes :id, :name, :subject, :unreads
+  attributes :id, :name, :subject
 
 end
