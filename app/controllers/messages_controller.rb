@@ -37,7 +37,7 @@ class MessagesController < ApplicationController
     def show_by_channel
         message = Message.where(channel_id: params[:channel_id]).order("created_at DESC").limit(100)
         if message
-            render json: message.select{|x| x.content != '000connectfixlink000'}
+            render json: message.select{|x| x.content != 'F4FvR%DfmyOEbaP=K3aZ'}
         else
             render json: { error: "messages not found" }, status: :not_found
         end

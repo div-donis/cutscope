@@ -53,9 +53,10 @@ class ChannelsController < ApplicationController
     end
 
     def show_by_name
-        channel = Channel.where("name like ?", "#{params[:name]}%")
-        if channel
-            render json: channel
+        channels = Channel.where("name like ?", "#{params[:name]}%")
+        filteredChannels = channels.reject{|x| @current_user.channels.include? x}
+        if filteredChannels
+            render json: filteredChannels
         else
             render json: { error: "channel not found" }, status: :not_found
         end

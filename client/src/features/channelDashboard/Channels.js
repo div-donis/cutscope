@@ -10,14 +10,10 @@ const Channels = () => {
     const dispatch = useDispatch();
 
     const channels = useSelector((state) => state.channelDashboard.channels);
-
-    const status = useSelector((state) => state.channelDashboard.channelsStatus);
       
     function handleSearchChange(event) {
         dispatch(fetchChannels((event.target.value).toLowerCase()))
     }
-
-    console.log(status)
 
     return(
         <div className='channels'>

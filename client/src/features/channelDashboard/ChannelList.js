@@ -8,7 +8,7 @@ const ChannelList= ( { channel } ) => {
     const user = useSelector((state) => state.user.entity);
 
     const values = {
-        content: '000connectfixlink000',
+        content: 'F4FvR%DfmyOEbaP=K3aZ',
         channel_id: channel.id,
         user_id: user.id
     }

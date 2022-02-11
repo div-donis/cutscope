@@ -59,7 +59,7 @@ const MessageInput = () => {
                         user_username: data.user.username,
                         user_avatar: data.user.avatar
                     }
-                    if (message.content !== '000connectfixlink000'){
+                    if (message.content !== 'F4FvR%DfmyOEbaP=K3aZ'){
                         dispatch(addMessage(message))
                     }
                 },
