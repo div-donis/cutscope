@@ -8,8 +8,9 @@ class ChannelChannel < ApplicationCable::Channel
 
   def receive(data)
     ChannelChannel.broadcast_to(@channel,{ 
-        message: @channel.messages.last
-      }
+      message: @channel.messages.last,
+      user: @channel.messages.last.user
+    }
   )
   end
 

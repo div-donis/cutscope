@@ -49,7 +49,7 @@ const MessageInput = () => {
             {
                 received: (data) => {
                     console.log(data)
-                   { /*const message = {
+                    const message = {
                         id: data.message.id,
                         content: data.message.content,
                         channel_id: data.message.channel_id,
@@ -61,7 +61,7 @@ const MessageInput = () => {
                     }
                     if (message.content !== '000connectfixlink000'){
                         dispatch(addMessage(message))
-                    }*/}
+                    }
                 },
                 connected: () => {
                     console.log('connected')
