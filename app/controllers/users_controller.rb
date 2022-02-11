@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize, only: [:create, :update]
   # GET /users
   def index
     users = User.all
@@ -21,11 +21,12 @@ class UsersController < ApplicationController
       end
   end
 
-  # PATCH/PUT /users/1
   def update
+    profile_image = params[:png]
     user = User.find_by(id: params[:id])
-    if user.update(user_params)
-      render json: user
+    user.profile_image.attach(profile_image) if profile_image.present?
+    if user.update(params.permit(:png))
+      render json: user.as_json(root: false, methods: :profile_image_url)
     else
       render json: user.errors, status: :unprocessable_entity
     end
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.permit(:username, :avatar, :password, :password_confirmation)
+      params.permit(:username, :avatar, :password, :password_confirmation, :png)
     end
 end
 
