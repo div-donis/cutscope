@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 's3/direct_post'
   mount ActionCable.server => '/cable'
 
   post "/login", to: "sessions#create" 
