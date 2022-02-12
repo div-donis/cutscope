@@ -16,6 +16,8 @@ const User = () => {
         dispatch(toggleMenu(!menuActive))
     }
 
+    console.log(user)
+
     return(
         <div className='user' onClick={handleToggle}>
             <div className='user-details'>

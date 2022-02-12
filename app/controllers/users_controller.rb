@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     profile_image = params[:png]
     user = User.find_by(id: params[:id])
     user.profile_image.attach(profile_image) if profile_image.present?
-    if user.update(params.permit(:png, :username))
+    if user.update(params.permit(:profile_image, :username))
       render json: user.as_json(root: false, methods: :profile_image_url).except('password_digest')
     else
       render json: user.errors, status: :unprocessable_entity
