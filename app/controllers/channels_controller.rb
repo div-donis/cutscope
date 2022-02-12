@@ -31,7 +31,7 @@ class ChannelsController < ApplicationController
                         user_id: message.user_id,
                         votes: message.votes,
                         user_username: message.user.username,
-                        user_avatar: message.user.avatar,
+                        user_profile_image_url: message.user.profile_image_url,
                         created_at: message.created_at
                     }   
                     end

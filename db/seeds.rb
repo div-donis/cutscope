@@ -4,44 +4,27 @@
 # Examples:
 #
 
-avis = [
-    'https://i.imgur.com/j9adtcsb.jpg', 
-    'https://i.imgur.com/hORmgOsb.jpg',
-    'https://i.imgur.com/TYxKjukb.jpg', 
-    'https://i.imgur.com/nyTHuLVb.jpg',
-    'https://i.imgur.com/HrUQ8Cib.jpg', 
-    'https://i.imgur.com/Qc24rcNb.jpg', 
-    'https://i.imgur.com/z4FM34eb.jpg', 
-    'https://i.imgur.com/dCMd9uWb.jpg', 
-    'https://i.imgur.com/07FBkCsb.jpg', 
-    'https://i.imgur.com/eYGS5Psb.jpg', 
-    'https://i.imgur.com/pjBFyZ7b.jpg',
-    'https://i.imgur.com/B22CBfFb.jpg',
-    'https://i.imgur.com/EBR8rOQb.jpg',
-    'https://i.imgur.com/EdZlPkKb.jpg',
-    'https://i.imgur.com/aRy02l9b.jpg',
-    'https://i.imgur.com/B7p0WWXb.jpg',
-    'https://i.imgur.com/dZtFNGcb.jpg',
-    'https://i.imgur.com/douh7U1b.jpg'
-]
+pfp_params = [*1..15]
 
 puts 'seeding...'
 200.times do 
     password = Faker::Internet.password(min_length: 8, max_length: 20)
-    User.create(
+    user = User.create(
         username: Faker::Internet.unique.username(specifier: 3..20),
-        avatar: avis.sample,
         password: password,
         password_confirmation: password
     )
+    pfp_param = pfp_params.sample
+    user.profile_image.attach(io: File.open(`./profile_images/pfp#{pfp_param}`), filename: `pfp#{pfp_param}.png`, content_type: 'image/png')
 end
 1.times do 
-    User.create(
+    user = User.create(
         username: 'testuser',
-        avatar: avis.sample,
         password: 'testuser',
         password_confirmation: 'testuser'
     )
+    pfp_param = pfp_params.sample
+    user.profile_image.attach(io: File.open(`./profile_images/pfp#{pfp_param}`), filename: `pfp#{pfp_param}.png`, content_type: 'image/png')
 end
 
 300.times do 
