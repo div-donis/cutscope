@@ -20,8 +20,8 @@ class DirectUploadController < ApplicationController
   
     def create_blob(blob_args)
       blob = ActiveStorage::Blob.create_before_direct_upload!(blob_args.to_h.deep_symbolize_keys)
-      file_id = SecureRandom.uuid
-      blob.update_attribute(:key, "uploads/#{file_id}") 
+      png_id = SecureRandom.uuid
+      blob.update_attribute(:key, "uploads/#{png_id}") 
       blob
     end
   
