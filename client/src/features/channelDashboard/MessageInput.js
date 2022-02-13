@@ -34,7 +34,7 @@ const MessageInput = () => {
             votes: 0,
             created_at: timestamp.toISOString(),
             user_username: user.username,
-            user_avatar: user.avatar
+            user_profile_image_url: user.profile_image_url
         })
     }
     

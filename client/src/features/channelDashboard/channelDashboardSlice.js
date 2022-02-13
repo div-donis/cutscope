@@ -51,7 +51,7 @@ const channelDashboardSlice = createSlice({
               votes: data.message.votes,
               created_at: data.message.created_at,
               user_username: data.user.username,
-              user_avatar: data.user.avatar
+              user_profile_image_url: data.user.profile_image_url
           }
         state.channelMessages.unshift(message)
       },

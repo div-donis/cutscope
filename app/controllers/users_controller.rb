@@ -13,9 +13,12 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-      user = User.create(user_params)
+      profile_image = 'eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBGUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--40100bc98c88ed073b17bcf518a49dac5c07f43d'
+      params = user_params.except(:png)
+      user = User.create!(params)
+      user.profile_image.attach(profile_image) if  profile_image.present?
       if user.valid?
-      render json: user, status: :created
+      render json: user.as_json(root: false, methods: :profile_image_url), status: :created
       else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
       end

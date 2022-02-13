@@ -37,7 +37,7 @@ const Message = ({message}) => {
         <div key={message.id} className='message-board-message'> 
             <div className='message-board-message'>
             <div className='message-user-details'>
-                <img alt='user iamge' className='message-board-message-img' src={message.user_avatar} /> 
+                <img alt='user iamge' className='message-board-message-img' src={message.user_profile_image_url} /> 
                 <p className='message-board-message-user'>{message.user_username}</p>
             </div >
             <div >

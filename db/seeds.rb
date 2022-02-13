@@ -15,8 +15,9 @@ puts 'seeding...'
         password_confirmation: password
     )
     pfp_param = pfp_params.sample
-    user.profile_image.attach(io: File.open(`./profile_images/pfp#{pfp_param}`), filename: `pfp#{pfp_param}.png`, content_type: 'image/png')
+    user.profile_image.attach(io: File.open("./profile_images/pfp#{pfp_param}.png"), filename: "pfp#{pfp_param}.png", content_type: 'image/png')
 end
+
 1.times do 
     user = User.create(
         username: 'testuser',
@@ -24,7 +25,7 @@ end
         password_confirmation: 'testuser'
     )
     pfp_param = pfp_params.sample
-    user.profile_image.attach(io: File.open(`./profile_images/pfp#{pfp_param}`), filename: `pfp#{pfp_param}.png`, content_type: 'image/png')
+    user.profile_image.attach(io: File.open("./profile_images/pfp#{pfp_param}.png"), filename: "pfp#{pfp_param}.png", content_type: 'image/png')
 end
 
 300.times do 

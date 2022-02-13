@@ -18,11 +18,16 @@ class ChannelsController < ApplicationController
         channel = Channel.find_by(id: params[:id])
         messages = Message.where("channel_id = ?", channel.id).order("created_at DESC").limit(100)
         if channel && messages
+            users = channel.users
             render json: { 
                 id: channel.id, 
                 name: channel.name, 
                 subject: channel.subject, 
-                users: channel.users,
+                users: users.map { |user| {
+                    id: user.id,
+                    username: user.username
+                }
+                },
                 messages: messages.map { |message| 
                     if message.content != 'F4FvR%DfmyOEbaP=K3aZ' then {
                         id: message.id,
