@@ -42,8 +42,6 @@ const MessageInput = () => {
         setValues(initialValues)
     }, [currentChannel])
 
-    console.log(currentChannel)
-
     useEffect(() => {
         if (currentChannel){
             cableApp.room = cableApp.cable.subscriptions.create({

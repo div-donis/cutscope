@@ -39,8 +39,6 @@ const NewChannel = () => {
         })  
     }     
 
-    console.log(errors)
-
     return(
         <>
             <div className={errors ? 'new-channel-errors' : 'new-channel-errors-closed'}><div id='close-errors' onClick={() => setErrors(null)}><VscChromeClose /></div>{errors?.map((err, i) => (<div className={err === 'Channel created!' ? 'success-bubble' : 'error-bubble'} key={i}>{err}</div>))}</div>

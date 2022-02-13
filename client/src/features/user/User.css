@@ -100,3 +100,40 @@
     float: left;
     margin-right: 3px;
 }
+.account-settings{
+    height: 100vh;
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    color: var(--font3);
+    font-family: var(--sans-serif);
+    font-weight: 400;
+    font-size: 14.7px;
+    color: var(--font3);
+}
+.account-div-left{
+    margin: 100px  0;
+    border-right: var(--border);
+    width: 270px;
+}
+.account-div-right{
+    flex-grow: 3;
+    margin: 100px 270px 100px 0;
+    width: 270px;
+}
+.account-div-right img{
+    height: 200px;
+    width: 200px;
+    border-radius: 200px;
+}
+.upi{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.upi input{
+    margin: 0 auto;
+}
+#account-submit{
+    width: 100px;
+}

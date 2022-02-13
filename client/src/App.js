@@ -6,6 +6,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, setStatus } from './features/user/userSlice'
+import AccountSettings from './features/user/AccountSettings';
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
       <div className="App">
           <Routes>
             <Route path='/dashboard' element={<Dashboard />}/>
+            <Route path='/account' element={<AccountSettings/>}/>
             <Route path="/*" element={<Navigate to="/dashboard" />}/>
           </Routes>
       </div>

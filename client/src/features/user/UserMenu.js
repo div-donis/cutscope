@@ -26,7 +26,7 @@ const UserMenu = () => {
     return(
         <div className={ menuActive ? 'user-drop-active' : 'user-drop'}>
             <ul className='user-menu'>
-                <li ><FiSettings id='account-settings'/> Account Settings</li>
+                <li onClick={() => navigate('/account')}><FiSettings id='account-settings'/> Account Settings</li>
                 <li onClick={handleLogout}><FiLogOut id='logout' />Logout</li>
             </ul>
         </div>
