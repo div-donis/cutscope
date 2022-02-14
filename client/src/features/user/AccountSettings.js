@@ -39,10 +39,10 @@ const AccountSettings = () => {
     const fileChecksum = async(file) => {
         const md5 = await md5FromFile(file)
         const checksum = md5.toString(CryptoJS.enc.Base64)
-    return checksum
+        return checksum
     }
 
-    const createPresignedUrl = async(file, byte_size, checksum) => {
+   {/* const createPresignedUrl = async(file, byte_size, checksum) => {
         let options = {
             method: 'POST',
             headers: {
@@ -67,9 +67,9 @@ const AccountSettings = () => {
         let res = await fetch(presignedUrlEndpoint, options)
         if (res.status !== 200) return res
         return await res.json()
-    }
+    }  */}
 
-    const updateImage = async(png) => {  
+    {/*const updateImage = async(png) => {  
         // To upload pdf file to S3, we need to do three steps:
         // 1) request a pre-signed PUT request (for S3) from the backend
     
@@ -102,11 +102,12 @@ const AccountSettings = () => {
         let res = await fetch(userEndpoint, usersPatchOptions)
         if (res.status !== 200) return res 
         return await res.json()
-    }
+    } */}
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
         if(file){
-            updateImage(file)
+            console.log(fileChecksum(file))
         }
     }
 
@@ -123,7 +124,6 @@ const AccountSettings = () => {
                         type='file' 
                         name='profile-image'
                         onChange={(e) => setFile(e.target.files[0])}
-                        value={file}
                     >
                     </input>
                     <input id='account-submit' type='submit'></input>
