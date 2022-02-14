@@ -70,6 +70,9 @@
 .channel-rack-channel-details{
     padding: 0 40px;
 }
+#no-channels{
+    text-align: center;
+}
 .user-channels-header{
     background: var(--scheme3);
     min-height: 60px;
