@@ -25,9 +25,10 @@ class ChannelsController < ApplicationController
                 subject: channel.subject, 
                 users: users.map { |user| {
                     id: user.id,
-                    username: user.username
+                    username: user.username,
+                    profile_image_url: user.profile_image_url
                 }
-                },
+                }.uniq,
                 messages: messages.map { |message| 
                     if message.content != 'F4FvR%DfmyOEbaP=K3aZ' then {
                         id: message.id,

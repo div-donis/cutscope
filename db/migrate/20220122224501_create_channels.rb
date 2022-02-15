@@ -3,7 +3,6 @@ class CreateChannels < ActiveRecord::Migration[6.1]
     create_table :channels do |t|
       t.string :name
       t.string :subject
-      t.boolean :unreads
 
       t.timestamps
     end

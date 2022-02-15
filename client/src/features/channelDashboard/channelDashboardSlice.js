@@ -20,7 +20,8 @@ const channelDashboardSlice = createSlice({
         userChannels: [],
         currentChannel: '',
         channelMessages: [],
-        channelMessagesStatus: 'idle'
+        channelMessagesStatus: 'idle',
+        channelUsers: []
     },
     reducers : {
       setUserChannels(state, action) {
@@ -62,6 +63,7 @@ const channelDashboardSlice = createSlice({
       },
       [fetchChannelMessages.fulfilled](state, action) {
         state.channelMessages = action.payload.messages
+        state.channelUsers = action.payload.users
         state.channelMessagesStatus = "idle";
       },
       [fetchChannels.pending](state) {

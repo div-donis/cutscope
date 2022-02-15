@@ -31,8 +31,7 @@ end
 300.times do 
     Channel.create(
         name: Faker::Internet.unique.username(specifier: 3..20),
-        subject: Faker::Movie.title,
-        unreads: false
+        subject: Faker::Movie.title
     )
 end
 
