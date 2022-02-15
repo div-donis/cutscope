@@ -107,7 +107,47 @@ const AccountSettings = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(file){
-            console.log(fileChecksum(file))
+            fileChecksum(file).then((res) =>{
+                fetch('/presigned_url', {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        "file" : {
+                            "filename": file.name,
+                            "byte_size": file.size,
+                            "checksum": res,
+                            "content_type": "image/png",
+                            "metadata": {
+                                "message": "profile_image"
+                            }
+                        }
+                    })
+                }).then(function(res){
+                    return res.json()
+                }).then(function(data) {
+                    const url = data.direct_upload.url
+                    const headers = data.direct_upload.headers
+                    const blob_signed_id = data.blob_signed_id
+                    fetch(`/api/users/${user.id}`, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-type": "image/png"
+                        },
+                        body: JSON.stringify({
+                            "id": user.id,
+                            "username": user.username,
+                            "png" : blob_signed_id
+                    })
+                    }).then(function(res){
+                        return res.json()
+                    }).then(function(data){
+                        console.log(data)
+                    })
+                })
+            })
+            
         }
     }
 
