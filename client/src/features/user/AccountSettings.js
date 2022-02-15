@@ -108,6 +108,8 @@ const AccountSettings = () => {
         e.preventDefault()
         if(file){
             fileChecksum(file).then((res) =>{
+                const checksum = res
+                console.log(checksum)
                 fetch('/presigned_url', {
                     method: "POST",
                     headers: {
@@ -117,7 +119,7 @@ const AccountSettings = () => {
                         "file" : {
                             "filename": file.name,
                             "byte_size": file.size,
-                            "checksum": res,
+                            "checksum": checksum,
                             "content_type": "image/png",
                             "metadata": {
                                 "message": "profile_image"
@@ -130,17 +132,19 @@ const AccountSettings = () => {
                     const url = data.direct_upload.url
                     const headers = data.direct_upload.headers
                     const blob_signed_id = data.blob_signed_id
+                    console.log(blob_signed_id)
                     fetch(`/api/users/${user.id}`, {
                         method: "PATCH",
                         headers: {
-                            "Content-type": "image/png"
+                            "Content_type": "image/png"
                         },
                         body: JSON.stringify({
-                            "id": user.id,
-                            "username": user.username,
+                            "id" : user.id,
+                            "username" : user.username,
                             "png" : blob_signed_id
                     })
                     }).then(function(res){
+                        console.log(res)
                         return res.json()
                     }).then(function(data){
                         console.log(data)
@@ -150,6 +154,18 @@ const AccountSettings = () => {
             
         }
     }
+
+    {/*fetch(`/api/users/${user.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-type": "image/png"
+        },
+        body: JSON.stringify({
+            "id": user.id,
+            "username": user.username,
+            "png" : blob_signed_id
+    })
+    })*/}
 
     return(
         <div className='account-settings'>
