@@ -115,8 +115,12 @@
     margin: 100px  0;
     border-right: var(--border);
     width: 270px;
+    user-select: none;
 }
 .account-div-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-grow: 3;
     margin: 100px 270px 100px 0;
     width: 270px;
@@ -127,13 +131,40 @@
     border-radius: 200px;
 }
 .upi{
-    margin-top: 10px;
+    height: 200px;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
 }
 .upi input{
-    margin: 0 auto;
+    border: none;
+    background-color: none;
+}
+.upi input:hover{
+    border: none;
+    background-color: none;
+}
+
+.upi input:focus{
+    border: none;
+    background-color: none;
+}
+
+.upi input:active{
+    outline: none;
+    border: none;
+    background-color: none;
+}
+#account-choose{
+    margin-top: 15px;
+    text-overflow: ellipsis; 
+    overflow-x: hidden; 
+    width: 88px;
+    line-height: 20px;
+    white-space:pre-wrap;
 }
 #account-submit{
-    width: 100px;
+    background-color: white;
 }

@@ -19,7 +19,7 @@ const User = () => {
     return(
         <div className='user' onClick={handleToggle}>
             <div className='user-details'>
-                <img alt='user avi' src={`${user.profile_image_url}`}></img>
+                <img alt='user avi' src={user.profile_image_url ? `${user.profile_image_url}` : 'https://i.imgur.com/qbBOch9.png'}></img>
                 <div className={ menuActive ? 'user-menu-arrow-up' : 'user-menu-arrow-down'}>
                     <AiOutlineMinus id='minus-1' /><AiOutlineMinus id={menuActive ? 'minus-2' : 'minus-2-open'} />
                 </div>
