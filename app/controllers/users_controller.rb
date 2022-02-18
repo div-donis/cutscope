@@ -39,7 +39,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
   def destroy
     user = User.find_by(id: params[:id])
     user.destroy
@@ -47,13 +46,13 @@ class UsersController < ApplicationController
 
   private
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.permit(:username, :profile_image_url, :password, :password_confirmation, :png)
-    end
+  def user_params
+    params.permit(:username, :profile_image_url, :password, :password_confirmation, :png)
+  end
 
-    def password_params
-      params.require(:user).permit(:password, :password_confirmation)
-    end 
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation)
+  end 
+
 end
 
