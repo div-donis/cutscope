@@ -26,4 +26,4 @@ in the db directory, seeds.rb holds test user. You can use this information to l
 
 `username: 'testuser' password: 'testuser'`
 
-This build is still in development. Feel free to contact me or make pull requests.
+This build is in development. Feel free to contact me or make pull requests.
