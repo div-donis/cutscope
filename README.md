@@ -1,6 +1,8 @@
-# React/Rails Project with Action Cable Websockets and AWS S3 Services
+# protoswim
 
-## Chat/Channel App, inspired by Slack & Discord
+## React/Rails Project with Action Cable Websockets and AWS S3 Services
+
+### Chat/Channel App, inspired by Slack & Discord
 
 To launch this project in localhost, fork this repository then run:
 ```
