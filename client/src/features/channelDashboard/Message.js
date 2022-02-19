@@ -1,21 +1,11 @@
 import React, { useState } from 'react'
 import { AiTwotoneStar } from 'react-icons/ai'
 
-const Message = ({message}) => {
+const Message = ({message, numFormatter}) => {
 
     const [votes, setVotes] = useState(message.votes)
 
     const moment = require("moment");
-
-    const numFormatter = (num) => {
-        if(num > 999 && num < 1000000){
-            return (num/1000).toFixed(1) + 'K'; 
-        }else if(num > 1000000){
-            return (num/1000000).toFixed(1) + 'M'; 
-        }else{
-            return num; 
-        }
-    }
 
     const handleUpVote = (id, votes) => {
         fetch(`/api/messages/${id}`, {
