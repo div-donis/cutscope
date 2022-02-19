@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentChannel, setUserChannels } from './channelDashboardSlice'
-import ChannelUsers from './ChannelUser';
+import ChannelUsers from './ChannelUsers';
 import UserChannels from './UserChannels';
 
 
