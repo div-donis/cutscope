@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentChannel, setUserChannels } from './channelDashboardSlice'
-import { GoPrimitiveDot } from 'react-icons/go'
+import ChannelUsers from './ChannelUser';
+import UserChannels from './UserChannels';
+
 
 const ChannelRack = () => {
     const dispatch = useDispatch();
@@ -41,23 +43,25 @@ console.log(channelUsers)
     return(
         <div className='channel-rack'>
             <div id='spacedes'></div>
-            <div className='user-channels-header'><div style={headerStyle}>{user.username}'s</div></div>
+            <div className='user-channels-header'>
+                <div style={headerStyle}>{user.username}'s</div>
+            </div>
             <div className='user-channel-cont'>
                 {userChannels.length < 1 ? <div id='no-channels'> Your channels will appear here. </div> : userChannels.map((userChannel) => 
-                    <div key={userChannel.id} onClick={() => handleSetChannel(userChannel)} className='channel-rack-channel-details'>
-                        <GoPrimitiveDot id='user-channel-dot'/>
-                        <div className='user-channel-name'>{userChannel.name}</div>
-                        <div className='user-channel-subject'>{userChannel.subject}</div>
-                    </div>
+                    <UserChannels 
+                        userChannel={userChannel}
+                        handleSetChannel={handleSetChannel}
+                    />
                 )}
             </div>
-            <div className='channel-users-header'><div style={headerStyle}>{currentChannel.name}</div></div>
+            <div className='channel-users-header'>
+                <div style={headerStyle}>{currentChannel.name}</div>
+            </div>
             <div className='channel-user-cont'>
                 {channelUsers ?  channelUsers.map((user) => 
-                    <div key={`${user.username}${user.id}`} className='user-cont'>
-                        <img  alt='user' src={user.profile_image_url ? `${user.profile_image_url}` : 'https://i.imgur.com/qbBOch9.png'}></img>
-                        <div className='channel-user-name'>{user.username}</div>
-                    </div>
+                    <ChannelUsers
+                        user={user} 
+                    />
                 ): null}
             </div>
         </div>

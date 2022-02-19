@@ -26,16 +26,23 @@ const Message = ({message, numFormatter}) => {
     return(
         <div key={message.id} className='message-board-message'> 
             <div className='message-board-message'>
-            <div className='message-user-details'>
-                <img alt='user' className='message-board-message-img' src={message.user_profile_image_url ? `${message.user_profile_image_url}` : 'https://i.imgur.com/qbBOch9.png'} /> 
-                <p className='message-board-message-user'>{message.user_username}</p>
-            </div >
-            <div >
-                
-                <p className='message-board-message-content'>{message.content}</p>  
-                <p className='message-board-message-votes' onClick={() => handleUpVote(message.id, votes)}><AiTwotoneStar id='star'/>{numFormatter(votes)}</p>
-                <div className='message-board-message-time'><hr />{moment(message.created_at).format('MMM DD YYYY h:mma')}<hr /></div>  
-            </div>
+                <div className='message-user-details'>
+                    <img alt='user' className='message-board-message-img' src={message.user_profile_image_url ? `${message.user_profile_image_url}` : 'https://i.imgur.com/qbBOch9.png'} /> 
+                    <p className='message-board-message-user'>
+                        {message.user_username}
+                    </p>
+                </div>
+                <div>
+                    <p className='message-board-message-content'>
+                        {message.content}
+                    </p>  
+                    <p className='message-board-message-votes' onClick={() => handleUpVote(message.id, votes)}>
+                        <AiTwotoneStar id='star'/> {numFormatter(votes)}
+                    </p>
+                    <div className='message-board-message-time'>
+                        <hr/>{moment(message.created_at).format('MMM DD YYYY h:mma')}<hr/>
+                    </div>  
+                </div>
             </div> 
         </div>
     )
