@@ -10,13 +10,13 @@ bundle install
 npm install --prefix client
 ```
 You can use the following commands to run the application:
-
-`rails s`
-
+```
+rails s
+```
 runs the backend on http://localhost:3000
-
-`npm start --prefix client`
-
+```
+npm start --prefix client
+```
 runs the frontend on http://localhost:4000
 
 To seed the database run:
