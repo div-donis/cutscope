@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { addMessage } from './channelDashboardSlice'
 import { useDispatch, useSelector } from "react-redux";
-import { AiOutlineSend } from 'react-icons/ai'
 import { cableApp } from '../..';
+import MessageForm from './MessageForm';
 
 const MessageInput = () => {
+    const dispatch = useDispatch();
 
+    const user = useSelector((state) => state.user.entity);
+
+    const currentChannel = useSelector((state) => state.channelDashboard.currentChannel);
+    
     const initialValues =  {
         content: '',
     }
-
     const [values, setValues] = useState(initialValues)
-
-    const dispatch = useDispatch();
-
-    const currentChannel = useSelector((state) => state.channelDashboard.currentChannel);
-
-    const user = useSelector((state) => state.user.entity);
 
     console.log(cableApp)
 
@@ -83,18 +81,11 @@ const MessageInput = () => {
     
     return(
         <div className='message-input'>
-            <form className='message-form' autoFocus onSubmit={handleSubmit}>
-                <div>
-                    <textarea 
-                    className='message-input-text'
-                    onChange={handleInputChange}
-                    name='content'
-                    value={values.content}
-                    placeholder='Say Something...'
-                />
-                </div>
-                <button type='submit'><AiOutlineSend id='send'/></button>
-            </form>
+            <MessageForm 
+                values={values}
+                handleInputChange={handleInputChange}
+                handleSubmit={handleSubmit}
+            />
         </div>
     )
 }

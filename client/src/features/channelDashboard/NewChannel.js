@@ -1,49 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { VscAdd, VscChromeClose } from 'react-icons/vsc'
 
-const initialValues =  {
-    name: '',
-    subject: '',
-}
-
-const NewChannel = () => {
-
-    const [values, setValues] = useState(initialValues)
-    const [errors, setErrors] = useState(null)
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target
-
-        setValues({
-            ...values,
-            [name]: value,
-        })
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        fetch('/api/channels', {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(values)
-        }).then((r) => {
-            if (r.ok) { 
-                setErrors(['Channel created!'])
-            }else{
-                r.json().then((err)=>
-                    setErrors(err.errors)
-                )
-            }
-        })  
-    }     
+const NewChannel = ({
+    errors,
+    handleInputChange,
+    handleSubmit,
+    setErrors,
+    values
+}) => {
 
     return(
         <>
-            <div className={errors ? 'new-channel-errors' : 'new-channel-errors-closed'}><div id='close-errors' onClick={() => setErrors(null)}><VscChromeClose /></div>{errors?.map((err, i) => (<div className={err === 'Channel created!' ? 'success-bubble' : 'error-bubble'} key={i}>{err}</div>))}</div>
-            <div className='new-channel'>
-                
+            <div className={errors ? 'new-channel-errors' : 'new-channel-errors-closed'}>
+                <div id='close-errors' onClick={() => setErrors(null)}>
+                    <VscChromeClose />
+                </div>
+                {errors?.map((err, i) => (
+                    <div 
+                        className={
+                            err === 'Channel created!' ? 
+                            'success-bubble' : 
+                            'error-bubble'
+                        } key={i}
+                    >
+                        {err}
+                    </div>
+                ))}
+            </div>
+            <div className='new-channel'>  
                 <form onSubmit={handleSubmit}  autoComplete="off">
                     <button type='submit'><VscAdd id='add-channel'/></button>
                     <div className='new-channel-inputs'>
