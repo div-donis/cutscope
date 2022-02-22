@@ -16,7 +16,7 @@ class ChannelsController < ApplicationController
 
     def show_with_messages
         channel = Channel.find_by(id: params[:id])
-        messages = Message.where("channel_id = ?", channel.id).order("created_at DESC").limit(100)
+        messages = Message.match_channel(channel.id)
         if channel && messages
             users = channel.users
             render json: { 

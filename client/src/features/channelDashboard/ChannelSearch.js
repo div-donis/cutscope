@@ -1,8 +1,6 @@
 import React from "react";
 import { AiOutlineSearch } from 'react-icons/ai'
 
-
-
 const ChannelSearch = ( {handleSearchChange} ) => {
 
     return(
