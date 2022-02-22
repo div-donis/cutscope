@@ -58,7 +58,7 @@ class ChannelsController < ApplicationController
     end
 
     def show_by_name
-        channels = Channel.by_name(params[:name])
+        channels = Channel.where("name like ?", "#{params[:name]}%") 
         filteredChannels = channels.reject{|x| @current_user.channels.include? x}
         if filteredChannels
             render json: filteredChannels
