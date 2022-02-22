@@ -8,4 +8,9 @@ class Channel < ApplicationRecord
     def downcase_fields
         self.name.downcase!
     end
+
+    def self.by_name(name)
+        Channel.where(name: name)
+    end
+
 end
